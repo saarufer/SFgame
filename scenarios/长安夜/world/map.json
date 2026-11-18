@@ -1,0 +1,430 @@
+{
+  "说明": "长安城为主的地图。城里的“地区”是坊（几坊合并成一片）、市、宫城皇城和城门；城外几处；远地（far: true）只来消息、偶尔能去。相邻关系在场景里决定一步走得到哪里（rules/scene.md），在季里决定军队一季走一格。income 都是 0：主角是臣子，不跑 economy.py。",
+  "regions": {
+    "宫城": {
+      "terrain": "city",
+      "fortification": 100,
+      "owner": "朝廷",
+      "adjacent": [
+        "皇城",
+        "崇仁坊",
+        "禁苑与长安军大营"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "大明宫、太极宫。天子、后妃、太子东宫都在里面；骑卒只能在宫门外看。宫城外围几座门归左金吾卫管，门里归羽林军",
+      "kind": "宫"
+    },
+    "皇城": {
+      "terrain": "city",
+      "fortification": 90,
+      "owner": "朝廷",
+      "adjacent": [
+        "宫城",
+        "崇仁坊",
+        "平康坊",
+        "城西诸坊",
+        "城南诸坊",
+        "西市"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "中书、门下、御史台、户部、鸿胪寺、史馆、金吾卫衙署都在这里；夜里只有当值的人",
+      "kind": "城内"
+    },
+    "崇仁坊": {
+      "terrain": "city",
+      "fortification": 0,
+      "owner": "朝廷",
+      "adjacent": [
+        "皇城",
+        "宫城",
+        "平康坊",
+        "东市",
+        "春明门"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "权贵宅第多；进奏院、客舍挨着皇城东门，外地来的官员多住这里。韩昭的宅子在这里",
+      "kind": "城内",
+      "ward": "左街"
+    },
+    "平康坊": {
+      "terrain": "city",
+      "fortification": 0,
+      "owner": "朝廷",
+      "adjacent": [
+        "崇仁坊",
+        "皇城",
+        "宣阳坊",
+        "东市"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "北里三曲：酒楼、妓馆、士子聚会，消息最多的地方。左金吾卫左街李琰一队的武候铺在北门",
+      "kind": "城内",
+      "ward": "左街"
+    },
+    "宣阳坊": {
+      "terrain": "city",
+      "fortification": 0,
+      "owner": "朝廷",
+      "adjacent": [
+        "平康坊",
+        "东市",
+        "城南诸坊",
+        "曲江"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "权贵宅第。康家宅（韩婉住，院里一架葡萄）、裴家宅都在这一带",
+      "kind": "城内",
+      "ward": "左街"
+    },
+    "东市": {
+      "terrain": "city",
+      "fortification": 0,
+      "owner": "朝廷",
+      "adjacent": [
+        "平康坊",
+        "宣阳坊",
+        "崇仁坊",
+        "春明门",
+        "曲江"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "两京货物、铁行、肉行、笔行、药行；盐铁院的东仓在市北，盐纲交盐在这里",
+      "kind": "城内",
+      "ward": "左街"
+    },
+    "曲江": {
+      "terrain": "plain",
+      "fortification": 0,
+      "owner": "朝廷",
+      "adjacent": [
+        "宣阳坊",
+        "东市",
+        "城南诸坊"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "曲江池、芙蓉园、杏园。春天射柳之后有曲江宴，进士在这里游宴",
+      "kind": "城内",
+      "ward": "左街"
+    },
+    "城南诸坊": {
+      "terrain": "city",
+      "fortification": 0,
+      "owner": "朝廷",
+      "adjacent": [
+        "皇城",
+        "宣阳坊",
+        "曲江",
+        "城西诸坊",
+        "西市"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "朱雀街以南的大片坊，寺院多：慈恩寺、宝昌寺（住持觉明）都在这里；坊里地多人少，有菜园、田",
+      "kind": "城内",
+      "ward": "左街（东半）、右街（西半）"
+    },
+    "西市": {
+      "terrain": "city",
+      "fortification": 0,
+      "owner": "朝廷",
+      "adjacent": [
+        "城西诸坊",
+        "金光门",
+        "城南诸坊",
+        "皇城"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "胡商、波斯邸、货栈、书肆；江南、契丹、回鹘的人都在这里落脚。汲古斋书肆、安萨保的货栈、牙人胡大眼的铺子都在这里",
+      "kind": "城内",
+      "ward": "右街"
+    },
+    "城西诸坊": {
+      "terrain": "city",
+      "fortification": 0,
+      "owner": "朝廷",
+      "adjacent": [
+        "西市",
+        "皇城",
+        "开远门",
+        "金光门",
+        "城南诸坊"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "醴泉坊、布政坊、怀远坊一带：胡人多，有祆祠、波斯寺；邸店客舍，驼队歇脚的地方",
+      "kind": "城内",
+      "ward": "右街"
+    },
+    "开远门": {
+      "terrain": "city",
+      "fortification": 70,
+      "owner": "朝廷",
+      "adjacent": [
+        "城西诸坊",
+        "禁苑与长安军大营",
+        "城西军屯",
+        "宁州"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "城西北门，西去凉州、北去宁州灵州的大路从这里出城；盐纲、驼队多从这里进",
+      "kind": "城门"
+    },
+    "春明门": {
+      "terrain": "city",
+      "fortification": 70,
+      "owner": "朝廷",
+      "adjacent": [
+        "东市",
+        "崇仁坊",
+        "灞桥"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "城东门，往洛阳、往河北、往江南的大路从这里出城；使团进京多走这里",
+      "kind": "城门"
+    },
+    "金光门": {
+      "terrain": "city",
+      "fortification": 70,
+      "owner": "朝廷",
+      "adjacent": [
+        "西市",
+        "城西诸坊",
+        "城西军屯",
+        "凉州",
+        "成都"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "城西正门，对着西市；往陇右、往蜀中的路",
+      "kind": "城门"
+    },
+    "禁苑与长安军大营": {
+      "terrain": "forest",
+      "fortification": 60,
+      "owner": "朝廷",
+      "adjacent": [
+        "宫城",
+        "开远门",
+        "渭河滩"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "城北的禁苑，林子、鹿圈、马场；长安军大营扎在苑里，统军没藏宗",
+      "kind": "城外"
+    },
+    "渭河滩": {
+      "terrain": "river",
+      "fortification": 0,
+      "owner": "朝廷",
+      "adjacent": [
+        "禁苑与长安军大营",
+        "城西军屯",
+        "灞桥"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "渭水南岸的河滩。每年春天天子和长安军在这里射柳",
+      "kind": "城外"
+    },
+    "灞桥": {
+      "terrain": "river",
+      "fortification": 0,
+      "owner": "朝廷",
+      "adjacent": [
+        "春明门",
+        "渭河滩",
+        "金陵",
+        "契丹南京"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "城东灞水上的桥，送别折柳的地方；东去的大路",
+      "kind": "城外"
+    },
+    "城西军屯": {
+      "terrain": "plain",
+      "fortification": 20,
+      "owner": "朝廷",
+      "adjacent": [
+        "开远门",
+        "金光门",
+        "渭河滩"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "城西的屯田军屯，老兵在这里养老；忠武营也扎在这一带。赵满仓住这里",
+      "kind": "城外"
+    },
+    "盐州": {
+      "terrain": "city",
+      "fortification": 50,
+      "owner": "朝廷",
+      "adjacent": [
+        "宁州",
+        "灵州"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "白家所在。盐池、晒盐场；白顺在这里管盐池，白守忠的坟在盐池边的高坡上",
+      "far": true,
+      "kind": "远地"
+    },
+    "灵州": {
+      "terrain": "city",
+      "fortification": 80,
+      "owner": "朝廷",
+      "adjacent": [
+        "宁州",
+        "盐州",
+        "凉州"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "朔方节度使康承嗣的治所；韩逊之墓和韩家祠堂在这里",
+      "far": true,
+      "kind": "远地"
+    },
+    "宁州": {
+      "terrain": "city",
+      "fortification": 60,
+      "owner": "朝廷",
+      "adjacent": [
+        "开远门",
+        "盐州",
+        "灵州"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "北去灵州、盐州的大路经过这里；团练使杜承恩（杜文进之子），窦家的粮行",
+      "far": true,
+      "kind": "远地"
+    },
+    "凉州": {
+      "terrain": "city",
+      "fortification": 70,
+      "owner": "朝廷",
+      "adjacent": [
+        "金光门",
+        "灵州",
+        "甘州"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "河西没藏部的地盘，西平郡王没藏讹遇住这里；论悉诺办的凉州学舍还在",
+      "far": true,
+      "kind": "远地"
+    },
+    "甘州": {
+      "terrain": "steppe",
+      "fortification": 50,
+      "owner": "甘州回鹘",
+      "adjacent": [
+        "凉州"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "甘州回鹘可汗的牙帐；阿依古丽住城外草场边的土屋，每年春天看马兰花",
+      "far": true,
+      "kind": "远地"
+    },
+    "成都": {
+      "terrain": "city",
+      "fortification": 70,
+      "owner": "朝廷",
+      "adjacent": [
+        "金光门"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "两川由朝廷派官；成都府巡检王蔚，城西青羊村",
+      "far": true,
+      "kind": "远地"
+    },
+    "金陵": {
+      "terrain": "city",
+      "fortification": 90,
+      "owner": "江南",
+      "adjacent": [
+        "灞桥"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "江南之主李璟的都城，自称唐宪宗之后",
+      "far": true,
+      "kind": "远地"
+    },
+    "契丹南京": {
+      "terrain": "city",
+      "fortification": 90,
+      "owner": "契丹",
+      "adjacent": [
+        "灞桥"
+      ],
+      "income": {
+        "money": 0,
+        "grain": 0
+      },
+      "note": "契丹的南京（幽州）；南面宰相周承训管着汉地",
+      "far": true,
+      "kind": "远地"
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "说明": "经济结算参数，由 scripts/economy.py 读取（唐末朔方开局版本）。己方势力名取 scenario.json 的 player.faction。各州基础钱粮取自 map.json 的 income；粮饷单价取自 rules/units.md。新增收入来源时往 fixed_income 里加，本剧本的特色收入见 scenarios/唐末朔方/rules/特色经济.md。",
+  "season_multiplier": {
+    "grain": {
+      "春": 1,
+      "夏": 1,
+      "秋": 3,
+      "冬": 0.5
+    },
+    "money": {
+      "春": 1,
+      "夏": 1,
+      "秋": 1,
+      "冬": 1
+    }
+  },
+  "war_multiplier": 0.5,
+  "region_modifiers": {},
+  "fixed_income": [],
+  "fixed_expense": [],
+  "upkeep_per_1000": {
+    "infantry": {
+      "grain": 900,
+      "money": 300
+    },
+    "cavalry": {
+      "grain": 1500,
+      "money": 600
+    },
+    "archer": {
+      "grain": 900,
+      "money": 400
+    },
+    "militia": {
+      "grain": 600,
+      "money": 100
+    },
+    "spear": {
+      "grain": 900,
+      "money": 320
+    },
+    "crossbow": {
+      "grain": 900,
+      "money": 450
+    },
+    "heavy_cavalry": {
+      "grain": 2200,
+      "money": 1000
+    },
+    "horse_archer": {
+      "grain": 1300,
+      "money": 550
+    }
+  },
+  "governance": {
+    "说明": "分层托管与政令衰减的参数，规则见 rules/governance.md。删掉这一块，亲领州就不打折。",
+    "decay_free_steps": 2,
+    "decay_per_step": 0.05,
+    "scale_free_regions": 8,
+    "scale_decay_per_region": 0.01,
+    "decay_floor": 0.6,
+    "recruit_cap_per_region": 800,
+    "recruit_cost_per_1000": {
+      "infantry": 1500,
+      "cavalry": 4000,
+      "archer": 2000,
+      "militia": 800
+    },
+    "horses_per_1000_cavalry": 1000,
+    "train_cost_per_1000": 100,
+    "deviation_per_step": 2,
+    "council_base": 3,
+    "council_max_bonus": 3,
+    "council_staff_min": 6
+  },
+  "字段说明": {
+    "region": "该项依托的州。州在战乱列表里时乘 war_multiplier；该州不归己方时不计。",
+    "seasonal": "true 表示粮食同样乘季节系数（屯田、劝农）。",
+    "region_modifiers": "按州乘的长期修正，例如加税。"
+  }
+}

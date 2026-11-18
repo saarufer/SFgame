@@ -1,0 +1,13 @@
+# 只放引擎和剧本包；对局存档、小说稿不进仓库
+/saves/
+/world/
+/chronicle/
+/archive/
+/sequel/
+/novel/
+/novel_*/
+/characters/*
+!/characters/_template*.md
+__pycache__/
+*.pyc
+.claude/settings.local.json

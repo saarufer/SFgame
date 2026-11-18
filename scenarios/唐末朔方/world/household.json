@@ -1,0 +1,73 @@
+{
+  "说明": "家宅存档（开局默认，未经 /newgame 建档）。由 scripts/household.py 读写，vignette.py --family 读取，规则见 rules/household.md。年纪不存，按生年（公元）和回合推算虚岁；纪年读 scenario.json 的 calendar。/newgame 会按玩家的回答重写这个文件和家人卡。",
+  "protagonist": {"name": "韩逊", "born": 864, "sex": "男", "card": "characters/han-xun.md", "where": "灵州"},
+  "members": {
+    "lushi": {
+      "name": "卢氏", "relation": "母", "sex": "女", "born": 841, "residence": "灵州·帅府后宅",
+      "health": "小恙", "closeness": "亲近", "busy": "入春咳嗽未好，每日在佛堂抄经", "card": "characters/kin-lushi.md",
+      "status": "在", "spouse": null, "mother": null, "father": null, "line": "",
+      "last_seen_turn": 1, "milestones": {}, "deferred": {}, "trait": "话不多，记性好，谁家孩子哪年生的都记得"
+    },
+    "songshi": {
+      "name": "宋氏", "relation": "妻", "sex": "女", "born": 873, "residence": "灵州·帅府后宅",
+      "health": "健朗", "closeness": "亲近", "busy": "管着后宅的账，替婆婆张罗寿辰", "card": "characters/kin-songshi.md",
+      "status": "在", "spouse": "韩逊", "mother": null, "father": null, "line": "",
+      "last_seen_turn": 1, "milestones": {}, "deferred": {}, "trait": "灵州宋家的女儿，算盘打得好，脸上不露心事"
+    },
+    "hanzhu": {
+      "name": "韩洙", "relation": "子", "sex": "男", "born": 891, "residence": "灵州·帅府后宅",
+      "health": "健朗", "closeness": "亲近", "busy": "跟塾师读《论语》，一有空就溜去马厩", "card": "characters/kin-hanzhu.md",
+      "status": "在", "spouse": null, "mother": "songshi", "father": "韩逊", "line": "嫡",
+      "last_seen_turn": 1, "milestones": {"启蒙": "开局前已过：七岁请塾师"}, "deferred": {}, "trait": "长得像父亲，爱在马厩里待着"
+    },
+    "hanhui": {
+      "name": "韩蕙", "relation": "女", "sex": "女", "born": 895, "residence": "灵州·帅府后宅",
+      "health": "健朗", "closeness": "亲近", "busy": "跟母亲学认字、学打算盘", "card": "characters/kin-hanhui.md",
+      "status": "在", "spouse": null, "mother": "songshi", "father": "韩逊", "line": "嫡",
+      "last_seen_turn": 1, "milestones": {"启蒙": "开局前已过：随母亲认字"}, "deferred": {}, "trait": "胆子大，敢揪哥哥的辫子"
+    },
+    "hanqian": {
+      "name": "韩虔", "relation": "弟", "sex": "男", "born": 875, "residence": "灵州·韩虔宅",
+      "health": "健朗", "closeness": "亲近", "busy": "在牙军挂押衙的名，手下没有兵，常去校场看人操练", "card": "characters/kin-hanqian.md",
+      "status": "在", "spouse": "李氏", "mother": "lushi", "father": null, "line": "",
+      "last_seen_turn": 1, "milestones": {"启蒙": "开局前已过", "习武": "开局前已过", "冠礼": "开局前已过", "议亲": "开局前已过：娶灵州李家女"}, "deferred": {}, "trait": "嗓门大，喝了酒爱讲父亲当年的事"
+    },
+    "lishi": {
+      "name": "李氏", "relation": "弟妇", "sex": "女", "born": 880, "residence": "灵州·韩虔宅",
+      "health": "健朗", "closeness": "亲近", "busy": "盼着有个孩子，常去寺里进香", "card": null,
+      "status": "在", "spouse": "韩虔", "mother": null, "father": null, "line": "",
+      "last_seen_turn": 1, "neglect_limit": 8, "milestones": {}, "deferred": {}, "trait": "小户人家的女儿，见了婆婆就低头"
+    },
+    "hanwan": {
+      "name": "韩婉", "relation": "妹", "sex": "女", "born": 885, "residence": "灵州·帅府后宅",
+      "health": "健朗", "closeness": "亲近", "busy": "替母亲抄经，也偷偷看兄长书房里的兵书", "card": "characters/kin-hanwan.md",
+      "status": "在", "spouse": null, "mother": "lushi", "father": null, "line": "",
+      "last_seen_turn": 1, "milestones": {"启蒙": "开局前已过", "及笄": "开局前已过"}, "deferred": {}, "trait": "十八了还没定亲，提起婚事就岔开话"
+    }
+  },
+  "heir": null,
+  "budget": {"tier": "常"},
+  "rules": {"cap_peace": 2, "cap_war": 1, "cap_away": 1},
+  "pregnancies": [],
+  "plans": [],
+  "events": [],
+  "visits": [],
+  "pending_triggers": {},
+  "last_season_turn": 0,
+  "字段说明": {
+    "born": "公元生年（公元前写负数）。虚岁 = 当年 − 生年 + 1；第 1 回合的年份见 scenario.json 的 start.year（本剧本 902 年春），每年春天长一岁",
+    "relation": "母 / 父 / 妻 / 妾 / 子 / 女 / 弟 / 妹 / 兄 / 姊 / 弟妇 / 妹夫 / 侄 / 侄女……",
+    "residence": "州·去处。州名决定在不在主角身边",
+    "health": "健朗 / 小恙 / 多病 / 病重",
+    "closeness": "亲疏：亲近 / 疏淡 / 怨怼 / 另有打算。有家人卡的以卡为准，season 同步",
+    "status": "在 / 出嫁 / 为质 / 被掳 / 离去 / 亡",
+    "line": "子女的嫡庶",
+    "last_seen_turn": "主角最后一次陪伴或写信的回合",
+    "neglect_limit": "几季不见记冷落的心结；不写按默认（妻妾子女 3，母亲弟妹 4，在外 8）",
+    "milestones": "已过的人生节点和定下的走向；deferred 是缓议到第几回合",
+    "rules": "每季家事上限：太平季、战事季、主角出征在外",
+    "budget": "家中用度档位（俭 / 常 / 丰），平日用度已含在帅府开支里",
+    "plans": "约好的婚期等事", "events": "喜事丧事记录", "visits": "每季的家事记录",
+    "pending_triggers": "下一次 season 要用的触发事件"
+  }
+}

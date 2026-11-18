@@ -1,0 +1,55 @@
+{
+  "说明": "主角是臣子，不跑 economy.py。这份只为校验和日后可能的用途（兵种粮饷）。个人钱物见 purse.json，俸钱见 court.json 的 ladders。",
+  "season_multiplier": {
+    "grain": {
+      "春": 1,
+      "夏": 1,
+      "秋": 3,
+      "冬": 0.5
+    },
+    "money": {
+      "春": 1,
+      "夏": 1,
+      "秋": 1,
+      "冬": 1
+    }
+  },
+  "war_multiplier": 0.5,
+  "region_modifiers": {},
+  "fixed_income": [],
+  "fixed_expense": [],
+  "upkeep_per_1000": {
+    "infantry": {
+      "grain": 900,
+      "money": 300
+    },
+    "cavalry": {
+      "grain": 1500,
+      "money": 600
+    },
+    "archer": {
+      "grain": 900,
+      "money": 400
+    },
+    "militia": {
+      "grain": 600,
+      "money": 100
+    },
+    "spear": {
+      "grain": 900,
+      "money": 320
+    },
+    "crossbow": {
+      "grain": 900,
+      "money": 450
+    },
+    "heavy_cavalry": {
+      "grain": 2200,
+      "money": 1000
+    },
+    "horse_archer": {
+      "grain": 1300,
+      "money": 550
+    }
+  }
+}

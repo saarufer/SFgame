@@ -1,0 +1,695 @@
+{
+  "version": 1,
+  "sovereign": "李洙",
+  "fame_kind": "士林",
+  "review_every": 4,
+  "factions": {
+    "法度派": {
+      "leader": "裴绪",
+      "members": [
+        "裴绪",
+        "裴瑾",
+        "郑徽"
+      ],
+      "voice": 6,
+      "stance": "守天祐新制：兵籍归户部、州县归吏部、节度不世袭、开科取士；储位立嫡",
+      "log": []
+    },
+    "寒门进士": {
+      "leader": "温季良",
+      "members": [
+        "温季良",
+        "王延龄",
+        "窦昉"
+      ],
+      "voice": 5,
+      "stance": "科举取士、清查寺田，寒门子弟要有路走；储位多半随太子",
+      "log": []
+    },
+    "将门": {
+      "leader": "没藏宗",
+      "members": [
+        "没藏宗",
+        "薛守岳",
+        "拓跋继忠",
+        "薛冲",
+        "薛定"
+      ],
+      "voice": 6,
+      "stance": "军功、兵权；书生守不住长安；储位偏雍王",
+      "log": []
+    },
+    "韩家": {
+      "leader": "韩昭",
+      "members": [
+        "韩昭",
+        "康敏",
+        "韩晏"
+      ],
+      "voice": 3,
+      "stance": "天子本家，守分寸：不争、不表态、不让人拿韩家说事",
+      "log": []
+    },
+    "诸蕃": {
+      "leader": "王继",
+      "members": [
+        "王继",
+        "没藏讹遇",
+        "拓跋怀德"
+      ],
+      "voice": 5,
+      "stance": "天可汗那一套不能变，互市不能停，蕃部的旧规矩别动；储位偏雍王",
+      "log": []
+    }
+  },
+  "offices": {
+    "同中书门下平章事": {
+      "rank": 2,
+      "holder": "温季良",
+      "council": true,
+      "log": [],
+      "note": "宰相"
+    },
+    "礼部尚书": {
+      "rank": 3,
+      "holder": "裴绪",
+      "council": true,
+      "log": [],
+      "note": "加同平章事，去年知贡举"
+    },
+    "吏部尚书": {
+      "rank": 3,
+      "holder": "卢承远",
+      "council": true,
+      "log": []
+    },
+    "中书舍人": {
+      "rank": 5,
+      "holder": "裴瑾",
+      "council": true,
+      "log": []
+    },
+    "户部侍郎": {
+      "rank": 4,
+      "holder": "王延龄",
+      "council": false,
+      "log": [],
+      "note": "主持清查寺田"
+    },
+    "户部主事": {
+      "rank": 9,
+      "holder": "窦昉",
+      "council": false,
+      "log": []
+    },
+    "监察御史": {
+      "rank": 8,
+      "holder": "杜若",
+      "council": false,
+      "log": []
+    },
+    "秘书省校书郎": {
+      "rank": 9,
+      "holder": "郑徽",
+      "council": false,
+      "log": []
+    },
+    "史馆修撰": {
+      "rank": 6,
+      "holder": "马续",
+      "council": false,
+      "log": []
+    },
+    "光禄卿": {
+      "rank": 3,
+      "holder": "韩昭",
+      "council": false,
+      "log": []
+    },
+    "鸿胪卿": {
+      "rank": 3,
+      "holder": "王继",
+      "council": true,
+      "log": [],
+      "note": "管诸蕃和外国使节；天可汗的事多，鸿胪卿议政"
+    },
+    "长安军都指挥使": {
+      "rank": 3,
+      "holder": "没藏宗",
+      "council": true,
+      "log": []
+    },
+    "长安军左厢校尉": {
+      "rank": 6,
+      "holder": "薛冲",
+      "council": false,
+      "log": []
+    },
+    "丰州防御使": {
+      "rank": 4,
+      "holder": "薛守岳",
+      "council": false,
+      "log": []
+    },
+    "忠武营都指挥使": {
+      "rank": 4,
+      "holder": "拓跋继忠",
+      "council": false,
+      "log": []
+    },
+    "左金吾卫大将军": {
+      "rank": 3,
+      "holder": null,
+      "council": false,
+      "log": [],
+      "note": "空着，由左金吾将军代掌"
+    },
+    "左金吾将军": {
+      "rank": 3,
+      "holder": "李守诚",
+      "council": false,
+      "log": [],
+      "note": "管长安街坊巡夜、宫城外围诸门"
+    },
+    "右羽林大将军": {
+      "rank": 3,
+      "holder": "浑德",
+      "council": false,
+      "log": [],
+      "note": "宫城里面的宿卫"
+    },
+    "内侍监": {
+      "rank": 3,
+      "holder": "严承恩",
+      "council": false,
+      "log": []
+    },
+    "太医令": {
+      "rank": 7,
+      "holder": "陈景和",
+      "council": false,
+      "log": []
+    },
+    "千牛备身": {
+      "rank": 6,
+      "holder": "康敏",
+      "council": false,
+      "log": [],
+      "note": "宿卫天子左右"
+    },
+    "朔方节度使": {
+      "rank": 2,
+      "holder": "康承嗣",
+      "council": false,
+      "log": [],
+      "note": "驻灵州，任期还剩一年"
+    },
+    "西平郡王·凉州节度使": {
+      "rank": 2,
+      "holder": "没藏讹遇",
+      "council": false,
+      "log": []
+    },
+    "夏州蕃部都督": {
+      "rank": 3,
+      "holder": "拓跋怀德",
+      "council": false,
+      "log": [],
+      "note": "蕃官世袭，和节度不世袭的规矩一直有争议"
+    }
+  },
+  "ladders": {
+    "金吾卫": {
+      "unit": "贯",
+      "note": "左右金吾卫的阶。俸钱是每季的钱（贯），另有衣粮；骑卒自备的马卫里给草料。rank 为 null 的是流外，没有品级。office 为 true 的阶在 offices 里只有一个位子，升到这一阶走 appoint",
+      "rungs": [
+        {
+          "post": "骑卒",
+          "rank": null,
+          "pay": 2.4,
+          "duty": "随队巡街、守夜、救火、拿人"
+        },
+        {
+          "post": "队副",
+          "rank": null,
+          "pay": 3.6,
+          "duty": "队正不在时领一队"
+        },
+        {
+          "post": "队正",
+          "rank": null,
+          "pay": 5.4,
+          "duty": "领一队骑卒（二三十人），管几坊的巡夜"
+        },
+        {
+          "post": "执戟",
+          "rank": 9,
+          "rank_name": "正九品下",
+          "pay": 7.5,
+          "duty": "入流的头一阶；宫门外执戟宿卫，也领街铺"
+        },
+        {
+          "post": "司戈",
+          "rank": 8,
+          "rank_name": "正八品下",
+          "pay": 10,
+          "duty": "管一街的武候铺"
+        },
+        {
+          "post": "中候",
+          "rank": 7,
+          "rank_name": "正七品下",
+          "pay": 14,
+          "duty": "左街使的副手，查夜、断街坊的小案"
+        },
+        {
+          "post": "司阶",
+          "rank": 6,
+          "rank_name": "正六品上",
+          "pay": 20,
+          "duty": "掌宫城外围一门的门禁"
+        },
+        {
+          "post": "左右郎将",
+          "rank": 5,
+          "rank_name": "正五品上",
+          "pay": 32,
+          "duty": "领一府的卫士，能进宫城议事"
+        },
+        {
+          "post": "中郎将",
+          "rank": 4,
+          "rank_name": "正四品下",
+          "pay": 45,
+          "duty": "金吾卫的中坚，常奉旨办差"
+        },
+        {
+          "post": "左金吾将军",
+          "rank": 3,
+          "rank_name": "从三品",
+          "pay": 60,
+          "office": true,
+          "duty": "管长安街坊巡夜、宫城外围诸门"
+        },
+        {
+          "post": "左金吾卫大将军",
+          "rank": 3,
+          "rank_name": "正三品",
+          "pay": 80,
+          "office": true,
+          "duty": "金吾卫之首"
+        }
+      ]
+    }
+  },
+  "issues": {
+    "清查寺田": {
+      "title": "清查寺田",
+      "status": "悬而未决",
+      "options": [
+        "清查到底",
+        "只清新占",
+        "缓办"
+      ],
+      "sovereign": {
+        "lean": "只清新占",
+        "signal": "暗示"
+      },
+      "note": "户部侍郎王延龄在办；城南几座大寺的隐田已经量出来一些。天子在朝上说过“不可扰民，亦不可纵寺”",
+      "positions": {
+        "法度派": {
+          "want": "只清新占",
+          "accept": [
+            "清查到底"
+          ],
+          "bottom": [],
+          "weight": 2
+        },
+        "寒门进士": {
+          "want": "清查到底",
+          "accept": [
+            "只清新占"
+          ],
+          "bottom": [
+            "缓办"
+          ],
+          "bottom_text": "寺田不清，国用不足，授田无地",
+          "weight": 3
+        },
+        "将门": {
+          "want": "缓办",
+          "accept": [
+            "只清新占"
+          ],
+          "bottom": [],
+          "weight": 1
+        },
+        "韩家": {
+          "want": "只清新占",
+          "accept": [
+            "缓办"
+          ],
+          "bottom": [],
+          "weight": 1
+        },
+        "诸蕃": {
+          "want": "缓办",
+          "accept": [
+            "只清新占"
+          ],
+          "bottom": [
+            "清查到底"
+          ],
+          "bottom_text": "胡寺、祆祠、蕃部施的寺田也在清查之列，诸蕃寒心",
+          "weight": 2
+        }
+      }
+    },
+    "楚国求援": {
+      "title": "楚国求援",
+      "status": "悬而未决",
+      "options": [
+        "出兵助楚王",
+        "遣使调停",
+        "置之不理"
+      ],
+      "sovereign": {
+        "lean": "遣使调停",
+        "signal": "暗示"
+      },
+      "note": "湖南马家兄弟争位，楚王的使者汤允恭在鸿胪寺外跪了三天",
+      "positions": {
+        "法度派": {
+          "want": "遣使调停",
+          "accept": [
+            "置之不理"
+          ],
+          "bottom": [],
+          "weight": 2
+        },
+        "寒门进士": {
+          "want": "置之不理",
+          "accept": [
+            "遣使调停"
+          ],
+          "bottom": [
+            "出兵助楚王"
+          ],
+          "bottom_text": "国用正紧，不为别家兄弟打仗",
+          "weight": 2
+        },
+        "将门": {
+          "want": "出兵助楚王",
+          "accept": [
+            "遣使调停"
+          ],
+          "bottom": [],
+          "weight": 2
+        },
+        "韩家": {
+          "want": "遣使调停",
+          "accept": [
+            "置之不理"
+          ],
+          "bottom": [],
+          "weight": 1
+        },
+        "诸蕃": {
+          "want": "置之不理",
+          "accept": [
+            "遣使调停"
+          ],
+          "bottom": [],
+          "weight": 1
+        }
+      }
+    },
+    "朔方纪事": {
+      "title": "《朔方纪事》禁不禁",
+      "status": "悬而未决",
+      "options": [
+        "禁毁",
+        "删改再刻",
+        "照旧流布"
+      ],
+      "sovereign": {
+        "lean": "照旧流布",
+        "signal": "未露"
+      },
+      "note": "江南拿书里“天子本韩氏”的话做文章；朝中有人请禁，有人说史不可禁",
+      "positions": {
+        "法度派": {
+          "want": "删改再刻",
+          "accept": [
+            "禁毁"
+          ],
+          "bottom": [],
+          "weight": 2
+        },
+        "寒门进士": {
+          "want": "照旧流布",
+          "accept": [
+            "删改再刻"
+          ],
+          "bottom": [
+            "禁毁"
+          ],
+          "bottom_text": "史不可禁",
+          "weight": 2
+        },
+        "将门": {
+          "want": "照旧流布",
+          "accept": [
+            "删改再刻"
+          ],
+          "bottom": [],
+          "weight": 1
+        },
+        "韩家": {
+          "want": "删改再刻",
+          "accept": [
+            "照旧流布"
+          ],
+          "bottom": [],
+          "weight": 2
+        },
+        "诸蕃": {
+          "want": "照旧流布",
+          "accept": [
+            "删改再刻"
+          ],
+          "bottom": [
+            "禁毁"
+          ],
+          "bottom_text": "书里记着诸部的功劳",
+          "weight": 1
+        }
+      }
+    },
+    "契丹使团": {
+      "title": "契丹使团：续盟与求婚",
+      "status": "悬而未决",
+      "options": [
+        "许婚续盟",
+        "续盟不许婚",
+        "停互市示威"
+      ],
+      "sovereign": {
+        "lean": "续盟不许婚",
+        "signal": "暗示"
+      },
+      "note": "契丹正使萧翰里、副使耶律撒剌；契丹开口求娶寿安公主",
+      "positions": {
+        "法度派": {
+          "want": "续盟不许婚",
+          "accept": [
+            "许婚续盟"
+          ],
+          "bottom": [],
+          "weight": 2
+        },
+        "寒门进士": {
+          "want": "续盟不许婚",
+          "accept": [
+            "许婚续盟"
+          ],
+          "bottom": [],
+          "weight": 1
+        },
+        "将门": {
+          "want": "停互市示威",
+          "accept": [
+            "续盟不许婚"
+          ],
+          "bottom": [
+            "许婚续盟"
+          ],
+          "bottom_text": "天子的女儿不能拿去换太平",
+          "weight": 2
+        },
+        "韩家": {
+          "want": "续盟不许婚",
+          "accept": [],
+          "bottom": [],
+          "weight": 2
+        },
+        "诸蕃": {
+          "want": "许婚续盟",
+          "accept": [
+            "续盟不许婚"
+          ],
+          "bottom": [
+            "停互市示威"
+          ],
+          "bottom_text": "互市一停，河西诸部先饿",
+          "weight": 3
+        }
+      }
+    },
+    "立储": {
+      "title": "储位",
+      "status": "暗议（没人上奏，人人心里有数）",
+      "options": [
+        "维持太子李宪",
+        "改立雍王李祁",
+        "立李祐",
+        "缓议"
+      ],
+      "sovereign": {
+        "lean": "缓议",
+        "signal": "未露"
+      },
+      "note": "暗议题：没有人敢先上奏。宫中家宅 households/palace.json 的 succession_issue 指这一条",
+      "positions": {
+        "法度派": {
+          "want": "维持太子李宪",
+          "accept": [
+            "缓议"
+          ],
+          "bottom": [
+            "改立雍王李祁"
+          ],
+          "bottom_text": "不许以庶夺嫡",
+          "weight": 3
+        },
+        "寒门进士": {
+          "want": "维持太子李宪",
+          "accept": [
+            "缓议"
+          ],
+          "bottom": [],
+          "weight": 2
+        },
+        "将门": {
+          "want": "改立雍王李祁",
+          "accept": [
+            "缓议"
+          ],
+          "bottom": [],
+          "weight": 3
+        },
+        "韩家": {
+          "want": "缓议",
+          "accept": [
+            "维持太子李宪",
+            "改立雍王李祁"
+          ],
+          "bottom": [],
+          "weight": 1
+        },
+        "诸蕃": {
+          "want": "改立雍王李祁",
+          "accept": [
+            "维持太子李宪",
+            "缓议"
+          ],
+          "bottom": [],
+          "weight": 2
+        }
+      }
+    }
+  },
+  "memorials": [],
+  "feuds": {
+    "将门|法度派": {
+      "level": "龃龉",
+      "log": [],
+      "entries": [
+        {
+          "id": 1,
+          "when": "承平二十六年冬",
+          "what": "冬至朝会上，没藏宗当众说太子“书生守不住长安”，裴瑾当殿驳他",
+          "s": 1,
+          "status": "未了",
+          "age": 1
+        },
+        {
+          "id": 2,
+          "when": "承平二十六年冬",
+          "what": "雍王府的属官用了亲王不该用的仪仗，裴瑾上疏请责，留中不发",
+          "s": 1,
+          "status": "未了",
+          "age": 1
+        }
+      ]
+    },
+    "诸蕃|寒门进士": {
+      "level": "相安",
+      "log": [],
+      "entries": [
+        {
+          "id": 3,
+          "when": "承平二十七年春",
+          "what": "户部丈量城西的胡寺、祆祠田地，王继上疏说扰了胡商",
+          "s": 1,
+          "status": "未了",
+          "age": 0
+        }
+      ]
+    }
+  },
+  "careers": {
+    "白玫": {
+      "post": "骑卒",
+      "ladder": "金吾卫",
+      "superior": "李琰",
+      "regard": 0,
+      "merit": 0,
+      "duty": null,
+      "since_turn": 1,
+      "log": [
+        "承平二十七年春：开场那一夜之后入左金吾卫，归左街队正李琰"
+      ],
+      "note": "序幕（开场那一夜）里他还是押纲的白家二郎；那一夜之后才是骑卒"
+    },
+    "李琰": {
+      "post": "队正",
+      "ladder": "金吾卫",
+      "superior": "李守诚",
+      "regard": 0,
+      "merit": 1,
+      "duty": null,
+      "since_turn": 1,
+      "log": [
+        "承平二十六年：升队正"
+      ]
+    },
+    "窦昉": {
+      "post": "户部主事",
+      "superior": "王延龄",
+      "regard": 2,
+      "merit": 1,
+      "duty": {
+        "what": "清查城南诸坊寺田的账",
+        "due_turn": 2,
+        "given_turn": 1
+      },
+      "since_turn": 1,
+      "log": []
+    }
+  },
+  "out": {},
+  "next_memorial": 1,
+  "last_season_turn": 0,
+  "log": []
+}

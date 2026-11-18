@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>长安夜 · 开卷</title>
+<style>
+:root {
+  --paper:#f6f1e7; --paper2:#efe7d6; --ink:#2b2620; --ink2:#5d5448; --ink3:#8a7f70;
+  --line:#d8ccb6; --accent:#9b2f22; --accent-soft:#e9c9bd; --gold:#a07a2c;
+  --ward:#ece3d1; --ward-line:#d5c6aa; --palace:#e2cfa6; --office:#e8dcc0;
+  --water:#6d8fa6; --park:#dfe5cf; --wall:#6b5a45;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#1d1a16; --paper2:#26221c; --ink:#ece4d6; --ink2:#c2b7a5; --ink3:#8f8576;
+    --line:#3c352b; --accent:#e0826f; --accent-soft:#5a2d25; --gold:#d3ad5f;
+    --ward:#2a261f; --ward-line:#3d362c; --palace:#4a3e28; --office:#3b3427;
+    --water:#7fa3bb; --park:#28301f; --wall:#b5a283;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1d1a16; --paper2:#26221c; --ink:#ece4d6; --ink2:#c2b7a5; --ink3:#8f8576;
+  --line:#3c352b; --accent:#e0826f; --accent-soft:#5a2d25; --gold:#d3ad5f;
+  --ward:#2a261f; --ward-line:#3d362c; --palace:#4a3e28; --office:#3b3427;
+  --water:#7fa3bb; --park:#28301f; --wall:#b5a283;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun","Noto Serif CJK SC",serif;
+  font-size:17px; line-height:1.95; }
+.wrap { max-width:860px; margin:0 auto; padding:0 16px 80px; }
+header.cover { text-align:center; padding:72px 16px 40px; border-bottom:1px solid var(--line); }
+.cover h1 { font-size:46px; letter-spacing:.35em; margin:0 0 6px; font-weight:700; padding-left:.35em; }
+.cover .sub { color:var(--ink3); letter-spacing:.2em; font-size:15px; }
+.seal { display:inline-block; margin-top:22px; border:2px solid var(--accent); color:var(--accent);
+  padding:4px 10px; font-size:14px; letter-spacing:.3em; border-radius:3px; }
+nav.toc { position:sticky; top:0; z-index:5; background:var(--paper); border-bottom:1px solid var(--line);
+  display:flex; justify-content:center; flex-wrap:wrap; gap:4px 22px; padding:10px 16px; font-size:15px; }
+nav.toc a { color:var(--ink2); text-decoration:none; }
+nav.toc a:hover { color:var(--accent); }
+section { padding-top:44px; }
+h2 { font-size:28px; letter-spacing:.2em; margin:0 0 4px; }
+h2 small { font-size:15px; color:var(--ink3); letter-spacing:.1em; font-weight:400; margin-left:10px; }
+.lede { color:var(--ink2); margin:0 0 24px; font-size:15.5px; }
+h3 { font-size:20px; margin:34px 0 8px; letter-spacing:.1em; }
+p { margin:0 0 14px; }
+.annal { list-style:none; padding:0; margin:0; border-left:2px solid var(--line); }
+.annal li { position:relative; padding:0 0 18px 26px; }
+.annal li::before { content:""; position:absolute; left:-6px; top:11px; width:10px; height:10px;
+  border-radius:50%; background:var(--paper); border:2px solid var(--gold); }
+.annal .yr { display:block; font-weight:700; color:var(--accent); font-size:15.5px; letter-spacing:.05em; }
+.annal .yr span { color:var(--ink3); font-weight:400; margin-left:6px; }
+.note { background:var(--paper2); border-left:3px solid var(--gold); padding:12px 16px; margin:18px 0;
+  font-size:15.5px; color:var(--ink2); }
+.zan { border-top:1px dashed var(--line); margin-top:20px; padding-top:14px; color:var(--ink2); }
+.zan b { color:var(--accent); font-weight:700; margin-right:6px; }
+table { border-collapse:collapse; width:100%; font-size:15.5px; margin:10px 0 18px; }
+th, td { border-bottom:1px solid var(--line); padding:7px 8px; text-align:left; vertical-align:top; }
+th { color:var(--ink3); font-weight:400; font-size:14px; letter-spacing:.1em; }
+.tablewrap { overflow-x:auto; }
+.tree { display:flex; flex-direction:column; align-items:center; gap:0; margin:18px 0 28px; font-size:15.5px; }
+.tree .gen { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+.tree .p { border:1px solid var(--line); background:var(--paper2); padding:6px 14px; border-radius:4px; text-align:center; line-height:1.5; }
+.tree .p small { display:block; color:var(--ink3); font-size:12.5px; }
+.tree .p.me { border-color:var(--accent); box-shadow:0 0 0 1px var(--accent) inset; }
+.tree .v { width:1px; height:18px; background:var(--wall); }
+.figure { margin:16px 0 8px; background:var(--paper2); border:1px solid var(--line); border-radius:6px; padding:10px; }
+svg.map { width:100%; height:auto; display:block; }
+svg .ward { fill:var(--ward); stroke:var(--ward-line); stroke-width:1; }
+svg .patrol { fill:var(--accent-soft); stroke:var(--accent); stroke-width:1.2; }
+svg .market { fill:var(--office); stroke:var(--wall); stroke-width:1.2; }
+svg .market.patrol { fill:var(--accent-soft); stroke:var(--accent); }
+svg .palace { fill:var(--palace); stroke:var(--wall); stroke-width:2; }
+svg .office { fill:var(--office); stroke:var(--wall); stroke-width:2; }
+svg .wall { fill:none; stroke:var(--wall); stroke-width:6; }
+svg .avenue { stroke:var(--paper); stroke-width:12; }
+svg .street { stroke:var(--paper); stroke-width:6; }
+svg .river { fill:none; stroke:var(--water); stroke-width:6; stroke-linecap:round; opacity:.8; }
+svg .pond { fill:var(--water); opacity:.55; stroke:var(--water); }
+svg .park { fill:var(--park); stroke:var(--wall); stroke-width:1.2; stroke-dasharray:6 5; }
+svg .field { fill:none; stroke:var(--ink3); stroke-dasharray:4 4; }
+svg .farm { fill:var(--park); stroke:var(--wall); stroke-width:1.2; }
+svg .camp { fill:var(--wall); }
+svg .gate { fill:var(--accent); }
+svg .road { fill:none; stroke:var(--ink3); stroke-width:2; stroke-dasharray:6 5; }
+svg .bridge { fill:var(--paper); stroke:var(--accent); stroke-width:3; }
+svg .temple { fill:var(--gold); }
+svg .star { fill:var(--accent); font-size:22px; }
+svg text { fill:var(--ink); font-family:inherit; }
+svg .big { font-size:30px; font-weight:700; letter-spacing:4px; }
+svg .mid { font-size:22px; font-weight:700; }
+svg .mid-dim { font-size:22px; fill:var(--ink2); letter-spacing:3px; }
+svg .small { font-size:19px; fill:var(--ink2); }
+svg .tiny { font-size:15px; fill:var(--ink3); }
+svg .ward-lbl { font-size:16px; font-weight:700; fill:var(--accent); }
+svg .gate-lbl { font-size:19px; font-weight:700; fill:var(--accent); }
+svg .street-lbl { font-size:17px; fill:var(--ink3); letter-spacing:6px; }
+svg .water { font-size:20px; fill:var(--water); letter-spacing:4px; }
+svg .side { font-size:20px; fill:var(--ink2); letter-spacing:8px; }
+svg .compass { font-size:22px; fill:var(--accent); font-weight:700; }
+svg.far .edges line { stroke:var(--ink3); stroke-width:2; stroke-dasharray:5 5; }
+svg.far .nodes circle { fill:var(--paper); stroke:var(--wall); stroke-width:2.5; }
+svg.far .nodes .capital { fill:var(--accent); stroke:var(--accent); }
+svg.far .nodes .home { fill:var(--gold); stroke:var(--gold); }
+svg.far .nodes .foreign { stroke-dasharray:3 2; }
+svg.far .home-lbl { fill:var(--gold); }
+.legend { display:flex; flex-wrap:wrap; gap:6px 20px; font-size:14px; color:var(--ink2); margin:8px 4px 0; }
+.legend i { display:inline-block; width:14px; height:14px; vertical-align:-2px; margin-right:6px; border-radius:2px; }
+.lg-p { background:var(--accent-soft); border:1px solid var(--accent); }
+.lg-g { background:var(--palace); border:1px solid var(--wall); }
+.lg-o { background:var(--office); border:1px solid var(--wall); }
+.lg-s { color:var(--accent); font-style:normal; }
+dl.places { margin:0; }
+dl.places dt { font-weight:700; margin-top:12px; }
+dl.places dd { margin:0 0 0 1.5em; color:var(--ink2); }
+footer { margin-top:60px; text-align:center; color:var(--ink3); font-size:13.5px; border-top:1px solid var(--line); padding-top:18px; }
+.themebtn { position:fixed; right:14px; bottom:14px; z-index:9; background:var(--paper2); color:var(--ink2);
+  border:1px solid var(--line); border-radius:20px; padding:4px 12px; font:inherit; font-size:13px; cursor:pointer; }
+@media (max-width:560px) {
+  body { font-size:16px; }
+  .cover h1 { font-size:34px; }
+  h2 { font-size:23px; }
+}
+</style>
+</head>
+<body>
+<header class="cover">
+  <h1>长安夜</h1>
+  <div class="sub">开卷前的几页闲书</div>
+  <div class="seal">承平纪略 · 白氏家传 · 长安城图</div>
+</header>
+<nav class="toc">
+  <a href="#annals">承平纪略</a><a href="#family">白氏家传</a><a href="#map">长安城图</a><a href="#far">远地</a><a href="#calendar">纪年</a>
+</nav>
+<div class="wrap">
+
+<section id="annals">
+  <h2>承平纪略<small>今上即位以来</small></h2>
+  <p class="lede">据邸报、坊间所传和《朔方纪事》略记。只写长安人人知道的事，宫闱秘事、朝中密议不在此列。</p>
+
+  <h3>前事</h3>
+  <p>黄巢乱后，天下分裂。唐天复二年（902），朔方节度使韩逊据灵州、盐州两城，兵不满万。此后二十年，取丰州，平盐州，收夏宥，败于泾水而不乱，困邠州以待其饥，天祐十年（913）收复长安。</p>
+  <p>收复长安以后，韩逊不称帝，迎嗣唐王李琮入长安监国，年号仍用天祐。天祐十七年（920），李琮即位。他没有子嗣，天祐十九年（922）收韩逊的儿子韩洙为子，立为太子，改名李洙。这就是坊间说的“以子嗣唐”。</p>
+  <p>韩逊定下的几条规矩，一直沿用到今天：兵籍归户部，州县归吏部，节度使不许世袭。</p>
+
+  <h3>大事</h3>
+  <ul class="annal">
+    <li><span class="yr">天祐二十六年<span>929</span></span>光宗皇帝李琮驾崩，庙号光宗，谥至道孝光皇帝。太子李洙即位，年十七。即位那天，尚父韩逊在殿下照礼可以不拜，他撩起袍子跪下去，行了全礼。</li>
+    <li><span class="yr">承平元年<span>930</span></span>改元承平。</li>
+    <li><span class="yr">承平二年<span>931</span></span>皇长子李宪生，裴皇后所出，后来立为太子。</li>
+    <li><span class="yr">承平三年<span>932</span></span>尚父韩逊第四次上表交还兵权，表里只有一句话：“臣修了二十年台阶，今日该下来了。”天子准了。韩逊和夫人阿依古丽带着几十个老兵出长安西门，往甘州去，从此没有回来。</li>
+    <li><span class="yr">承平五年<span>934</span></span>皇次子李祁生，没藏贵妃所出，后来封雍王。</li>
+    <li><span class="yr">承平九年<span>938</span></span>寿安公主生。</li>
+    <li><span class="yr">承平十一年<span>940</span></span>春，韩逊卒于甘州，正是马兰花开的时候。灵柩东归，葬在灵州。墓碑上九个字：“朔方节度使韩逊之墓”。后来天子西巡到灵州，在墓前跪下磕了三个头，没让礼官说话。</li>
+    <li><span class="yr">承平十二年<span>941</span></span>盐铁旧臣杜昶卒，七十一岁。</li>
+    <li><span class="yr">承平十七年<span>946</span></span>幼子李祐生，卢昭仪所出。</li>
+    <li><span class="yr">承平二十一年<span>950</span></span>太子得子，皇孙李晋生。</li>
+    <li><span class="yr">承平二十二年<span>951</span></span>韩澄卒。他是韩逊的弟弟，长子韩昭袭守灵州韩家祠堂，入朝做光禄卿。</li>
+    <li><span class="yr">承平二十五年<span>954</span></span>马鸣卒，七十八岁。他是韩逊的老幕僚，著《朔方纪事》，记天复二年到承平三年的事，由儿子马续刻版行世。坊间说书人多半照这本书讲韩公的故事。</li>
+    <li><span class="yr">承平二十六年<span>955</span></span>户部清查寺田，收了城南宝昌寺二百亩田。冬天的朝会上，长安军统军没藏宗当着众人说太子“书生守不住长安”，中书舍人裴瑾当场驳了回去，天子没说话。</li>
+    <li><span class="yr">承平二十七年 春<span>956</span></span>
+      渭河滩射柳，天子只射了一箭就下场了，宫里说是手臂旧伤犯了；雍王一箭不落。<br>
+      契丹遣使续盟，正使萧翰里、副使耶律撒剌住在鸿胪客馆，开口求娶寿安公主。<br>
+      湖南马家兄弟争位，楚王的使者在鸿胪寺外跪了三天，求朝廷出兵。<br>
+      户部侍郎王延龄接着清查寺田，城南几座大寺的田被丈量了。<br>
+      江南拿《朔方纪事》里“天子本韩氏”的话做文章，朝中有人请禁这本书，也有人说史书禁不得。<br>
+      储位，没人公开说。</li>
+  </ul>
+
+  <h3>四邻</h3>
+  <div class="tablewrap"><table>
+    <tr><th>哪一家</th><th>和长安</th></tr>
+    <tr><td>契丹</td><td>以长城为界，互市不断。契丹主嗜酒，朝政多在述律氏和南面宰相周承训手里。周承训是周延嗣的儿子，少年时在灵州节度府学过写字。</td></tr>
+    <tr><td>江南</td><td>据金陵，国主李璟自称唐宪宗之后，说长安天子本姓韩，不来朝。</td></tr>
+    <tr><td>甘州回鹘</td><td>可汗药罗葛·仁裕是天子的表兄弟。太后阿依古丽住在甘州城外草场边的土屋里，每年春天去看马兰花。商路一直通着长安。</td></tr>
+    <tr><td>河西没藏部</td><td>西平郡王没藏讹遇住在凉州。没藏贵妃、长安军统军没藏宗都出自这一家。</td></tr>
+    <tr><td>两川</td><td>由朝廷派官治理。</td></tr>
+    <tr><td>楚</td><td>马家兄弟正在争位。</td></tr>
+  </table></div>
+
+  <h3>朝中</h3>
+  <p>长安人嘴里，朝中大致有五拨人：<b>法度派</b>（读书人、台谏，领头的是裴绪）、<b>寒门进士</b>（温季良一辈）、<b>将门</b>（长安军和边上的将领，没藏宗）、<b>韩家</b>（韩昭一支，不大出头）、<b>诸蕃</b>（归附各部，鸿胪寺的王继）。谁跟谁好、谁想立谁，街上猜的多，知道的少。</p>
+
+  <div class="zan"><b>坊间语</b>“长安天子本姓韩，金陵才是真李唐。”“圣上射柳只射一箭，是手臂旧伤犯了。”“寺田要清，和尚要还俗。”这三句今春传得最凶，哪句真哪句假，各人有各人的说法。</div>
+</section>
+
+<section id="family">
+  <h2>白氏家传<small>盐州白家</small></h2>
+  <p class="lede">家里人口口相传的事，加上《朔方纪事》里有名有姓的几笔。家里人不知道的，这里也不写。</p>
+
+  <div class="tree">
+    <div class="gen"><div class="p">白守忠<small>863—931 · 盐州监军</small></div></div>
+    <div class="v"></div>
+    <div class="gen"><div class="p">白顺<small>900— · 盐官</small></div><div class="p">张氏<small>904— · 盐场小吏之女</small></div></div>
+    <div class="v"></div>
+    <div class="gen">
+      <div class="p">白敬<small>933— · 押纲官</small></div>
+      <div class="p">白芸<small>934— · 适刘承</small></div>
+      <div class="p me">白玫<small>936— · 金吾卫</small></div>
+    </div>
+  </div>
+
+  <h3>祖父　白守忠</h3>
+  <p>丰州人，矮壮，浓眉，下巴一撮硬胡子，左眼斜。说的是丰州土话，识字不多，写信要舔笔头，落款按个黑指印。</p>
+  <p>天复二年（902），他是天德军副将。朔方的人来丰州找他，他蹲在羊圈墙根底下听完，收了那包银子，临走回头说了一句：“你跟韩公说，我叫白守忠。”这年秋天的一个夜里，丰州城里举火，他开了城门，薛崇的骑兵从门里进了城。</p>
+  <p>这年冬天论功，他封了盐州监军，带着丰州出来的几十个老弟兄，领降卒组成的盛威营，在盐池北边的沙碛口上筑了一座壁垒。第二年夏州的兵来过几回，壁垒没有守住，他带着残兵退进盐州城。入冬，盐州守将周延嗣在城头举火叛降夏州，把他和杜昶关在帅府后院，一关就是十来天。后来周延嗣请降，派他出城给韩公送信。</p>
+  <p>盐州平定以后，他就一直守在盐州，前后二十多年没有挪过窝。家里人问他怎么不去灵州、不去长安，他说：“盐州好，有盐吃。”晚年才学会写自己的名字，写了一张又一张，贴在墙上看。</p>
+  <p>承平二年（931）卒，六十九岁，葬在盐池边的高坡上。家里只说过一句，他年轻时和李家的李大将军在盐州就认得。</p>
+
+  <h3>父亲　白顺</h3>
+  <p>天复三年冬，他四岁，记得盐州城头亮起三团火，母亲把他塞进柴房，外头有人喊了一整夜。别的都记不清了。</p>
+  <p>年轻时跟着杜昶手下的人学算盐课，后来进盐池做事，一做就是一辈子，如今是盐州盐池的盐官。天不亮就去晒场，看过盐色才吃早饭。逢年过节有人往官舍送礼，他叫人原样挑回去，连挑夫的脚钱也自己出。他和盐铁司的杜衡判官书信来往了许多年。</p>
+
+  <h3>母亲　张氏</h3>
+  <p>盐场小吏的女儿，十七岁嫁进白家。公公的丧事是她一手操持的。手脚闲不住，腌菜、纳鞋底，一边干一边念叨。初一十五去城里的寺里上香，求的都是儿子们路上平安。</p>
+
+  <h3>兄　白敬</h3>
+  <p>长子。十岁上跟父亲去晒盐场，脚被盐卤咬破了，没哭。承平二十二年（950）十七岁，头一回押盐纲，在开远门外的邸店里被人偷了钱袋。此后盐州到长安、到河东的路走熟了，和门吏、店家、马帮都称兄道弟。家里人说他“像祖父”。</p>
+
+  <h3>姊　白芸</h3>
+  <p>长女。先生教弟弟们认字，她在窗外偷听，认得的字比大郎还多。承平二十四年（953）前后嫁到盐州城里的军户刘家，夫刘承。婆婆早把钥匙交给了她。</p>
+
+  <h3>白玫</h3>
+  <p>次子，承平七年（936）生。在盐池边的马背上长大，教他骑马的是老牧马人何满。读过几年书。十五岁偷取祖父挂在墙上的旧横刀来练，被父亲撞见，第二天父亲把刀交给了他。</p>
+  <p>承平二十七年二月，随哥哥押纲进长安。临走那天，父亲塞给他一块刻着“盛威营”的旧铜腰牌，说：“你祖父的。”又往包袱里放了一封写给杜伯父的信。母亲缝了一包青盐，姐姐送到城门口，往他包袱里塞了一双新鞋。</p>
+
+  <div class="note">家里留下的几样东西：祖父的旧横刀（刀身两处缺口）；“盛威营”铜腰牌（正面的字磨得看不清，边上一道豁口）；母亲缝的一包盐州青盐；父亲给杜衡的信，封着口。</div>
+</section>
+
+<section id="map">
+  <h2>长安城图<small>示意，不按比例</small></h2>
+  <p class="lede">朱雀大街以东是左街，以西是右街。一百多坊，坊有坊墙，墙上有坊门。</p>
+  <div class="figure">
+<svg class="map" viewBox="-175 -345 1310 1245" role="img" aria-label="长安城示意图">
+  <title>长安城示意图</title>
+  <!-- 渭水 -->
+  <path class="river" d="M-175,-318 C-60,-332 40,-300 160,-316 S380,-334 520,-314 S760,-300 900,-320 S1060,-330 1135,-312"/>
+  <text class="water" x="980" y="-290" text-anchor="middle" >渭　水</text>
+  <ellipse class="field" cx="120" cy="-290" rx="95" ry="20"/>
+  <text class="small" x="120" y="-284" text-anchor="middle" >渭河滩</text>
+  <text class="tiny" x="120" y="-262" text-anchor="middle" >（春天射柳）</text>
+  <!-- 灞水 -->
+  <path class="river" d="M1085,-330 C1070,-200 1100,-60 1080,80 S1095,300 1078,450 S1092,700 1080,900"/>
+  <text class="water" x="1105" y="600" text-anchor="middle" writing-mode="vertical-rl">灞水</text>
+  <!-- 禁苑 -->
+  <rect class="park" x="-40" y="-262" width="660" height="250" rx="10"/>
+  <text class="big" x="290" y="-170" text-anchor="middle" >禁　苑</text>
+  <text class="small" x="290" y="-140" text-anchor="middle" >林子 · 鹿圈 · 马场</text>
+  <path class="camp" d="M262,-100 l14,-22 l14,22 z M292,-100 l14,-22 l14,22 z"/>
+  <text class="small" x="290" y="-74" text-anchor="middle" >长安军大营</text>
+  <!-- 大明宫 -->
+  <rect class="palace" x="640" y="-190" width="170" height="186" rx="3"/>
+  <text class="big" x="725" y="-105" text-anchor="middle" >大明宫</text>
+  <text class="tiny" x="725" y="-78" text-anchor="middle" >（属宫城）</text>
+  <!-- 外郭城墙 -->
+  <rect class="wall" x="0" y="0" width="970" height="860"/>
+  <rect class="ward" x="628" y="3" width="82" height="50" rx="2"/>
+<rect class="ward" x="628" y="57" width="82" height="50" rx="2"/>
+<rect class="ward" x="628" y="111" width="82" height="50" rx="2"/>
+<rect class="ward" x="628" y="165" width="82" height="50" rx="2"/>
+<rect class="ward" x="628" y="219" width="82" height="50" rx="2"/>
+<rect class="ward patrol" x="628" y="273" width="82" height="50" rx="2"/>
+<rect class="ward patrol" x="628" y="338" width="82" height="52" rx="2"/>
+<rect class="ward patrol" x="628" y="396" width="82" height="52" rx="2"/>
+<rect class="ward" x="628" y="454" width="82" height="52" rx="2"/>
+<rect class="ward" x="628" y="512" width="82" height="52" rx="2"/>
+<rect class="ward" x="628" y="570" width="82" height="52" rx="2"/>
+<rect class="ward" x="628" y="628" width="82" height="52" rx="2"/>
+<rect class="ward" x="628" y="686" width="82" height="52" rx="2"/>
+<rect class="ward" x="628" y="744" width="82" height="52" rx="2"/>
+<rect class="ward" x="628" y="802" width="82" height="52" rx="2"/>
+<rect class="ward" x="718" y="3" width="79" height="50" rx="2"/>
+<rect class="ward" x="718" y="57" width="79" height="50" rx="2"/>
+<rect class="ward" x="718" y="111" width="79" height="50" rx="2"/>
+<rect class="ward" x="718" y="165" width="79" height="50" rx="2"/>
+<rect class="ward" x="718" y="219" width="79" height="50" rx="2"/>
+<rect class="ward" x="718" y="273" width="79" height="50" rx="2"/>
+<rect class="ward" x="718" y="454" width="79" height="52" rx="2"/>
+<rect class="ward" x="718" y="512" width="79" height="52" rx="2"/>
+<rect class="ward" x="718" y="570" width="79" height="52" rx="2"/>
+<rect class="ward" x="718" y="628" width="79" height="52" rx="2"/>
+<rect class="ward" x="718" y="686" width="79" height="52" rx="2"/>
+<rect class="ward" x="718" y="744" width="79" height="52" rx="2"/>
+<rect class="ward" x="718" y="802" width="79" height="52" rx="2"/>
+<rect class="ward" x="805" y="3" width="77" height="50" rx="2"/>
+<rect class="ward" x="805" y="57" width="77" height="50" rx="2"/>
+<rect class="ward" x="805" y="111" width="77" height="50" rx="2"/>
+<rect class="ward" x="805" y="165" width="77" height="50" rx="2"/>
+<rect class="ward" x="805" y="219" width="77" height="50" rx="2"/>
+<rect class="ward" x="805" y="273" width="77" height="50" rx="2"/>
+<rect class="ward" x="805" y="338" width="77" height="52" rx="2"/>
+<rect class="ward" x="805" y="396" width="77" height="52" rx="2"/>
+<rect class="ward" x="805" y="454" width="77" height="52" rx="2"/>
+<rect class="ward" x="805" y="512" width="77" height="52" rx="2"/>
+<rect class="ward" x="805" y="570" width="77" height="52" rx="2"/>
+<rect class="ward" x="805" y="628" width="77" height="52" rx="2"/>
+<rect class="ward" x="805" y="686" width="77" height="52" rx="2"/>
+<rect class="ward" x="890" y="3" width="77" height="50" rx="2"/>
+<rect class="ward" x="890" y="57" width="77" height="50" rx="2"/>
+<rect class="ward" x="890" y="111" width="77" height="50" rx="2"/>
+<rect class="ward" x="890" y="165" width="77" height="50" rx="2"/>
+<rect class="ward" x="890" y="219" width="77" height="50" rx="2"/>
+<rect class="ward" x="890" y="273" width="77" height="50" rx="2"/>
+<rect class="ward" x="890" y="338" width="77" height="52" rx="2"/>
+<rect class="ward" x="890" y="396" width="77" height="52" rx="2"/>
+<rect class="ward" x="890" y="454" width="77" height="52" rx="2"/>
+<rect class="ward" x="890" y="512" width="77" height="52" rx="2"/>
+<rect class="ward" x="890" y="570" width="77" height="52" rx="2"/>
+<rect class="ward" x="890" y="628" width="77" height="52" rx="2"/>
+<rect class="ward" x="890" y="686" width="77" height="52" rx="2"/>
+<rect class="ward" x="260" y="3" width="82" height="50" rx="2"/>
+<rect class="ward" x="260" y="57" width="82" height="50" rx="2"/>
+<rect class="ward" x="260" y="111" width="82" height="50" rx="2"/>
+<rect class="ward" x="260" y="165" width="82" height="50" rx="2"/>
+<rect class="ward" x="260" y="219" width="82" height="50" rx="2"/>
+<rect class="ward" x="260" y="273" width="82" height="50" rx="2"/>
+<rect class="ward" x="260" y="338" width="82" height="52" rx="2"/>
+<rect class="ward" x="260" y="396" width="82" height="52" rx="2"/>
+<rect class="ward" x="260" y="454" width="82" height="52" rx="2"/>
+<rect class="ward" x="260" y="512" width="82" height="52" rx="2"/>
+<rect class="ward" x="260" y="570" width="82" height="52" rx="2"/>
+<rect class="ward" x="260" y="628" width="82" height="52" rx="2"/>
+<rect class="ward" x="260" y="686" width="82" height="52" rx="2"/>
+<rect class="ward" x="260" y="744" width="82" height="52" rx="2"/>
+<rect class="ward" x="260" y="802" width="82" height="52" rx="2"/>
+<rect class="ward" x="173" y="3" width="79" height="50" rx="2"/>
+<rect class="ward" x="173" y="57" width="79" height="50" rx="2"/>
+<rect class="ward" x="173" y="111" width="79" height="50" rx="2"/>
+<rect class="ward" x="173" y="165" width="79" height="50" rx="2"/>
+<rect class="ward" x="173" y="219" width="79" height="50" rx="2"/>
+<rect class="ward" x="173" y="273" width="79" height="50" rx="2"/>
+<rect class="ward" x="173" y="454" width="79" height="52" rx="2"/>
+<rect class="ward" x="173" y="512" width="79" height="52" rx="2"/>
+<rect class="ward" x="173" y="570" width="79" height="52" rx="2"/>
+<rect class="ward" x="173" y="628" width="79" height="52" rx="2"/>
+<rect class="ward" x="173" y="686" width="79" height="52" rx="2"/>
+<rect class="ward" x="173" y="744" width="79" height="52" rx="2"/>
+<rect class="ward" x="173" y="802" width="79" height="52" rx="2"/>
+<rect class="ward" x="88" y="3" width="77" height="50" rx="2"/>
+<rect class="ward" x="88" y="57" width="77" height="50" rx="2"/>
+<rect class="ward" x="88" y="111" width="77" height="50" rx="2"/>
+<rect class="ward" x="88" y="165" width="77" height="50" rx="2"/>
+<rect class="ward" x="88" y="219" width="77" height="50" rx="2"/>
+<rect class="ward" x="88" y="273" width="77" height="50" rx="2"/>
+<rect class="ward" x="88" y="338" width="77" height="52" rx="2"/>
+<rect class="ward" x="88" y="396" width="77" height="52" rx="2"/>
+<rect class="ward" x="88" y="454" width="77" height="52" rx="2"/>
+<rect class="ward" x="88" y="512" width="77" height="52" rx="2"/>
+<rect class="ward" x="88" y="570" width="77" height="52" rx="2"/>
+<rect class="ward" x="88" y="628" width="77" height="52" rx="2"/>
+<rect class="ward" x="88" y="686" width="77" height="52" rx="2"/>
+<rect class="ward" x="88" y="744" width="77" height="52" rx="2"/>
+<rect class="ward" x="88" y="802" width="77" height="52" rx="2"/>
+<rect class="ward" x="3" y="3" width="77" height="50" rx="2"/>
+<rect class="ward" x="3" y="57" width="77" height="50" rx="2"/>
+<rect class="ward" x="3" y="111" width="77" height="50" rx="2"/>
+<rect class="ward" x="3" y="165" width="77" height="50" rx="2"/>
+<rect class="ward" x="3" y="219" width="77" height="50" rx="2"/>
+<rect class="ward" x="3" y="273" width="77" height="50" rx="2"/>
+<rect class="ward" x="3" y="338" width="77" height="52" rx="2"/>
+<rect class="ward" x="3" y="396" width="77" height="52" rx="2"/>
+<rect class="ward" x="3" y="454" width="77" height="52" rx="2"/>
+<rect class="ward" x="3" y="512" width="77" height="52" rx="2"/>
+<rect class="ward" x="3" y="570" width="77" height="52" rx="2"/>
+<rect class="ward" x="3" y="628" width="77" height="52" rx="2"/>
+<rect class="ward" x="3" y="686" width="77" height="52" rx="2"/>
+<rect class="ward" x="3" y="744" width="77" height="52" rx="2"/>
+<rect class="ward" x="3" y="802" width="77" height="52" rx="2"/>
+<rect class="ward" x="348" y="338" width="64" height="52" rx="2"/>
+<rect class="ward" x="348" y="396" width="64" height="52" rx="2"/>
+<rect class="ward" x="348" y="454" width="64" height="52" rx="2"/>
+<rect class="ward" x="348" y="512" width="64" height="52" rx="2"/>
+<rect class="ward" x="348" y="570" width="64" height="52" rx="2"/>
+<rect class="ward" x="348" y="628" width="64" height="52" rx="2"/>
+<rect class="ward" x="348" y="686" width="64" height="52" rx="2"/>
+<rect class="ward" x="348" y="744" width="64" height="52" rx="2"/>
+<rect class="ward" x="348" y="802" width="64" height="52" rx="2"/>
+<rect class="ward" x="420" y="338" width="60" height="52" rx="2"/>
+<rect class="ward" x="420" y="396" width="60" height="52" rx="2"/>
+<rect class="ward" x="420" y="454" width="60" height="52" rx="2"/>
+<rect class="ward" x="420" y="512" width="60" height="52" rx="2"/>
+<rect class="ward" x="420" y="570" width="60" height="52" rx="2"/>
+<rect class="ward" x="420" y="628" width="60" height="52" rx="2"/>
+<rect class="ward" x="420" y="686" width="60" height="52" rx="2"/>
+<rect class="ward" x="420" y="744" width="60" height="52" rx="2"/>
+<rect class="ward" x="420" y="802" width="60" height="52" rx="2"/>
+<rect class="ward" x="490" y="338" width="60" height="52" rx="2"/>
+<rect class="ward" x="490" y="396" width="60" height="52" rx="2"/>
+<rect class="ward" x="490" y="454" width="60" height="52" rx="2"/>
+<rect class="ward" x="490" y="512" width="60" height="52" rx="2"/>
+<rect class="ward" x="490" y="570" width="60" height="52" rx="2"/>
+<rect class="ward" x="490" y="628" width="60" height="52" rx="2"/>
+<rect class="ward" x="490" y="686" width="60" height="52" rx="2"/>
+<rect class="ward" x="490" y="744" width="60" height="52" rx="2"/>
+<rect class="ward" x="490" y="802" width="60" height="52" rx="2"/>
+<rect class="ward" x="558" y="338" width="64" height="52" rx="2"/>
+<rect class="ward" x="558" y="396" width="64" height="52" rx="2"/>
+<rect class="ward" x="558" y="454" width="64" height="52" rx="2"/>
+<rect class="ward" x="558" y="512" width="64" height="52" rx="2"/>
+<rect class="ward" x="558" y="570" width="64" height="52" rx="2"/>
+<rect class="ward" x="558" y="628" width="64" height="52" rx="2"/>
+<rect class="ward" x="558" y="686" width="64" height="52" rx="2"/>
+<rect class="ward" x="558" y="744" width="64" height="52" rx="2"/>
+<rect class="ward" x="558" y="802" width="64" height="52" rx="2"/>
+  <!-- 东市 西市 -->
+  <rect class="market patrol" x="718" y="338" width="79" height="110" rx="3"/>
+  <text class="mid" x="757" y="388" text-anchor="middle" >东市</text>
+  <text class="tiny" x="757" y="410" text-anchor="middle" >盐铁院东仓</text>
+  <rect class="market" x="173" y="338" width="79" height="110" rx="3"/>
+  <text class="mid" x="212" y="388" text-anchor="middle" >西市</text>
+  <text class="tiny" x="212" y="410" text-anchor="middle" >胡商 · 书肆</text>
+  <!-- 曲江 -->
+  <path class="pond" d="M812,760 C840,735 900,742 935,770 C962,795 955,840 920,850 C880,858 830,846 815,815 C805,795 800,775 812,760 z"/>
+  <text class="mid" x="882" y="800" text-anchor="middle" >曲江</text>
+  <!-- 宫城 皇城 -->
+  <rect class="palace" x="345" y="3" width="280" height="147" rx="2"/>
+  <text class="big" x="485" y="72" text-anchor="middle" >宫　城</text>
+  <text class="tiny" x="485" y="98" text-anchor="middle" >太极宫 · 东宫 · 掖庭</text>
+  <rect class="office" x="345" y="153" width="280" height="175" rx="2"/>
+  <text class="big" x="485" y="215" text-anchor="middle" >皇　城</text>
+  <text class="tiny" x="485" y="242" text-anchor="middle" >中书 · 门下 · 御史台</text>
+  <text class="tiny" x="485" y="262" text-anchor="middle" >户部 · 鸿胪寺 · 史馆</text>
+  <text class="star" x="560" y="306" text-anchor="middle">★</text>
+  <text class="tiny" x="560" y="322" text-anchor="middle" >金吾卫衙署</text>
+  <!-- 大街 -->
+  <line class="avenue" x1="485" y1="330" x2="485" y2="860"/>
+  <line class="street" x1="0" y1="333" x2="345" y2="333"/>
+  <line class="street" x1="625" y1="333" x2="970" y2="333"/>
+  <text class="street-lbl" x="485" y="600" text-anchor="middle" writing-mode="vertical-rl">朱雀大街</text>
+  <text class="tiny" x="485" y="346" text-anchor="middle" >朱雀门</text>
+  <text class="tiny" x="250" y="-8" text-anchor="middle" ></text>
+  <text class="side" x="170" y="880" text-anchor="middle" >右　街</text>
+  <text class="side" x="800" y="880" text-anchor="middle" >左　街</text>
+  <!-- 坊名 -->
+  <text class="ward-lbl" x="669" y="302" text-anchor="middle" >崇仁坊</text>
+  <text class="ward-lbl" x="669" y="368" text-anchor="middle" >平康坊</text>
+  <text class="star" x="669" y="352" text-anchor="middle">★</text>
+  <text class="ward-lbl" x="669" y="428" text-anchor="middle" >宣阳坊</text>
+  <text class="mid-dim" x="212" y="150" text-anchor="middle" >城西诸坊</text>
+  <text class="tiny" x="212" y="172" text-anchor="middle" >胡人 · 祆祠 · 邸店</text>
+  <text class="mid-dim" x="212" y="640" text-anchor="middle" >城南诸坊</text>
+  <text class="mid-dim" x="760" y="640" text-anchor="middle" >城南诸坊</text>
+  <circle class="temple" cx="530" cy="545" r="6"/>
+  <text class="tiny" x="530" y="574" text-anchor="middle" >慈恩寺</text>
+  <!-- 城门 -->
+  <rect class="gate" x="-9" y="155" width="18" height="22"/>
+  <text class="gate-lbl" x="-18" y="160" text-anchor="end" >开远门</text>
+  <text class="tiny" x="-18" y="182" text-anchor="end" >← 宁州 · 盐州 · 灵州</text>
+  <rect class="gate" x="-9" y="322" width="18" height="22"/>
+  <text class="gate-lbl" x="-18" y="328" text-anchor="end" >金光门</text>
+  <text class="tiny" x="-18" y="350" text-anchor="end" >← 凉州 · 成都</text>
+  <rect class="gate" x="961" y="322" width="18" height="22"/>
+  <text class="gate-lbl" x="990" y="322" text-anchor="start" >春明门</text>
+  <rect class="gate" x="474" y="851" width="22" height="18"/>
+  <text class="gate-lbl" x="485" y="890" text-anchor="middle" >明德门</text>
+  <!-- 城外 -->
+  <path class="road" d="M979,333 L1078,333"/>
+  <circle class="bridge" cx="1080" cy="333" r="8"/>
+  <text class="gate-lbl" x="1080" y="365" text-anchor="middle" >灞桥</text>
+  <text class="tiny" x="1080" y="387" text-anchor="middle" >东去洛阳 · 金陵 · 契丹</text>
+  <path class="road" d="M-9,166 L-170,166"/><path class="road" d="M-9,333 L-170,333"/>
+  <rect class="farm" x="-160" y="430" width="120" height="70" rx="6"/>
+  <text class="small" x="-100" y="462" text-anchor="middle" >城西军屯</text>
+  <text class="tiny" x="-100" y="484" text-anchor="middle" >老兵养老</text>
+  <text class="compass" x="485" y="-300" text-anchor="middle" >北</text>
+</svg></div>
+  <div class="legend">
+    <span><i class="lg-p"></i>李琰一队夜巡的地界</span>
+    <span><i class="lg-g"></i>宫城</span>
+    <span><i class="lg-o"></i>皇城、两市</span>
+    <span><em class="lg-s">★</em>武候铺（平康坊北门）、金吾卫衙署</span>
+  </div>
+
+  <h3>夜禁</h3>
+  <p>酉正前后，承天门的闭门鼓敲起来，各街鼓楼跟着敲，八百声敲完，城门、坊门一齐关上（戌初）。五更二点（寅正）开门鼓响，门才开。夜禁中，坊里面可以走动；出了坊门上大街，就是犯夜。金吾卫当值、官府差遣、婚丧急病，凭文牒可以走。犯夜的人被金吾卫拿到，照例笞二十。</p>
+
+  <h3>几处地方</h3>
+  <dl class="places">
+    <dt>平康坊</dt><dd>北里三曲，酒楼、妓馆、士子聚会的地方，消息最多。左街李琰一队的武候铺在北门。</dd>
+    <dt>崇仁坊</dt><dd>挨着皇城东门，权贵宅第多，各地进奏院、客舍在这里，外地来的官员多住这一坊。光禄卿韩昭的宅子也在这里。</dd>
+    <dt>宣阳坊</dt><dd>权贵宅第，康家、裴家的宅子在这一带。</dd>
+    <dt>东市</dt><dd>两京货物、铁行、肉行、笔行、药行。盐铁院的东仓在市北，盐纲在这里交盐。</dd>
+    <dt>西市</dt><dd>胡商、波斯邸、货栈、书肆。江南、契丹、回鹘的人都在这里落脚。</dd>
+    <dt>城西诸坊</dt><dd>醴泉、布政、怀远一带，胡人多，有祆祠、波斯寺；驼队歇脚的邸店客舍。</dd>
+    <dt>城南诸坊</dt><dd>朱雀街以南的大片坊，寺院多，慈恩寺、宝昌寺都在这里；坊里地多人少，有菜园、田。</dd>
+    <dt>曲江</dt><dd>曲江池、芙蓉园、杏园。射柳之后有曲江宴，新进士在这里游宴。</dd>
+    <dt>皇城</dt><dd>中书、门下、御史台、户部、鸿胪寺、史馆，金吾卫衙署也在这里。夜里只有当值的人。</dd>
+    <dt>宫城</dt><dd>太极宫、大明宫，天子、后妃、东宫都在里面。外围几座宫门归金吾卫管，门里归羽林军。</dd>
+    <dt>禁苑</dt><dd>城北的林子、鹿圈、马场，长安军的大营扎在苑里。</dd>
+    <dt>城门</dt><dd>开远门：西北门，西去凉州、北去宁州灵州的大路，盐纲、驼队多从这里进城。金光门：西面正门，对着西市，往陇右、蜀中。春明门：东门，往洛阳、河北、江南，使团进京多走这里。明德门：南面正门。</dd>
+    <dt>城外</dt><dd>渭河滩，每年春天射柳的地方。灞桥，东去送别、折柳的地方。城西军屯，打过仗的老兵在这里屯田养老。</dd>
+  </dl>
+</section>
+
+<section id="far">
+  <h2>远地<small>只来消息，偶尔能去</small></h2>
+  <div class="figure">
+<svg class="map far" viewBox="0 0 820 520" role="img" aria-label="远地示意图">
+  <title>远地示意图</title>
+  <g class="edges">
+    <line x1="70" y1="150" x2="210" y2="200"/>
+    <line x1="210" y1="200" x2="340" y2="110"/>
+    <line x1="210" y1="200" x2="520" y2="350"/>
+    <line x1="340" y1="110" x2="470" y2="130"/>
+    <line x1="340" y1="110" x2="440" y2="240"/>
+    <line x1="470" y1="130" x2="440" y2="240"/>
+    <line x1="440" y1="240" x2="520" y2="350"/>
+    <line x1="520" y1="350" x2="310" y2="470"/>
+    <line x1="520" y1="350" x2="750" y2="440"/>
+    <line x1="520" y1="350" x2="730" y2="90"/>
+  </g>
+  <g class="nodes">
+    <circle cx="70" cy="150" r="7"/><circle cx="210" cy="200" r="7"/><circle cx="340" cy="110" r="7"/>
+    <circle class="home" cx="470" cy="130" r="10"/><circle cx="440" cy="240" r="7"/>
+    <circle class="capital" cx="520" cy="350" r="12"/><circle cx="310" cy="470" r="7"/>
+    <circle class="foreign" cx="750" cy="440" r="7"/><circle class="foreign" cx="730" cy="90" r="7"/>
+  </g>
+  <text class="mid" x="70" y="128" text-anchor="middle">甘州</text>
+  <text class="tiny" x="70" y="178" text-anchor="middle">回鹘可汗牙帐</text>
+  <text class="mid" x="210" y="232" text-anchor="middle">凉州</text>
+  <text class="tiny" x="210" y="252" text-anchor="middle">河西没藏部</text>
+  <text class="mid" x="340" y="88" text-anchor="middle">灵州</text>
+  <text class="tiny" x="340" y="68" text-anchor="middle">朔方节度使 · 韩逊墓</text>
+  <text class="mid home-lbl" x="470" y="104" text-anchor="middle">盐州</text>
+  <text class="tiny" x="512" y="150" text-anchor="start">白家 · 盐池</text>
+  <text class="mid" x="472" y="246" text-anchor="start">宁州</text>
+  <text class="big" x="548" y="358" text-anchor="start">长安</text>
+  <text class="mid" x="310" y="500" text-anchor="middle">成都</text>
+  <text class="mid" x="750" y="470" text-anchor="middle">金陵</text>
+  <text class="tiny" x="750" y="490" text-anchor="middle">江南李氏</text>
+  <text class="mid" x="730" y="68" text-anchor="middle">契丹南京</text>
+  <text class="tiny" x="380" y="318" text-anchor="middle">金光门</text>
+  <text class="tiny" x="492" y="300" text-anchor="end">开远门</text>
+  <text class="tiny" x="640" y="380" text-anchor="middle">春明门 · 灞桥</text>
+  <text class="compass" x="790" y="30" text-anchor="middle">北</text>
+</svg></div>
+  <p>盐州的家书走开远门、宁州这条路。</p>
+</section>
+
+<section id="calendar">
+  <h2>纪年</h2>
+  <div class="tablewrap"><table>
+    <tr><th>年号</th><th>公元</th><th>换算</th></tr>
+    <tr><td>天复二年、三年</td><td>902、903</td><td>韩逊起于灵州</td></tr>
+    <tr><td>天祐元年 — 二十六年</td><td>904 — 929</td><td>天祐 N 年 ＝ 903 ＋ N</td></tr>
+    <tr><td>承平元年 — </td><td>930 — </td><td>承平 N 年 ＝ 929 ＋ N；今年承平二十七年 ＝ 956</td></tr>
+  </table></div>
+  <p>年纪按虚岁算：生年那一年就算一岁。</p>
+</section>
+
+<footer>《长安夜》开卷闲书 · 只写人人知道的事</footer>
+</div>
+<button class="themebtn" type="button" onclick="(function(){var r=document.documentElement;var d=r.getAttribute('data-theme');var dark=d?d==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.setAttribute('data-theme',dark?'light':'dark');})()">明 / 暗</button>
+</body>
+</html>

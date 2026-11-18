@@ -1,0 +1,22 @@
+{
+  "说明": "分层托管的存档，由 scripts/governance.py 读写，scripts/report.py、economy.py 读取。规则见 rules/governance.md。不在 commands、loose 里的己方州和军，都算亲领。",
+  "council": {
+    "seat": "灵州",
+    "staff": [],
+    "log": []
+  },
+  "establishment": {},
+  "commands": {},
+  "loose": {},
+  "hostile": [],
+  "last_settlement": {},
+  "字段说明": {
+    "council": "帅府。seat 治所；staff 幕僚列表，每人 {name, ability 1–10, forte [内政/军务/外交/人事/谋略…], lean 偏好, status 在/病/出使}；log 交办记录",
+    "establishment": "各军建制 {军名: {兵种: 人数}}，委任时按当时兵力自动记下，GM 可改。缺员、补员都对照它",
+    "commands": "委任的方面 {方面名: {holder 主将, card 人格卡, seat 方面治所, regions, armies, since_turn 起始回合, term 任期季数, corps_start 委任时部曲, directive 方针, store 方面库 {money, grain}, in_transit 在途补员, seen_grudges, log}}",
+    "directive": "方针 {words 原话, posture 攻/守/养, refill 补员目标(建制的几成), tribute 上供比例, latitude 钱粮权限 {tier 严/中/宽, money, grain, horses}, report 上报条件 {缺员, 士气, 敌军, 粮季}}",
+    "loose": "羁縻 {名: {regions, armies, attitude 态度, movement 动向}}。这些州、军不进府库明细，自养；只记态度和动向",
+    "hostile": "额外当作敌军的势力名前缀（factions.json 态度里带“敌”的自动算）",
+    "last_settlement": "governance.py season 的结算：turn, tribute 上供, draw 请拨代垫, deviation 各方面执行偏差, exceptions 例外"
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "kind": "palace",
+  "title": "宫中",
+  "head": "tianzi",
+  "succession_issue": "立储",
+  "说明": "宫中家宅（rules/household.md 第九节），household.py --house palace 管。病程是秘密 S1，宠爱、储位形势只进 GM 备注。",
+  "members": {
+    "tianzi": {
+      "name": "李洙",
+      "relation": "天子",
+      "sex": "男",
+      "born": 912,
+      "residence": "宫城·大明宫",
+      "health": "多病",
+      "status": "在",
+      "card": "characters/li-zhu.md",
+      "milestones": {},
+      "deferred": {},
+      "busy": "射柳只射一箭之后少见朝臣，常去卢昭仪那里坐",
+      "illness": {
+        "name": "肺疾",
+        "stage": 1,
+        "stages": [
+          "隐疾",
+          "时发",
+          "沉疴",
+          "弥留"
+        ],
+        "pace": 0.15,
+        "major_from": 2,
+        "known_by": [
+          "陈景和",
+          "裴皇后",
+          "严承恩"
+        ],
+        "secret": "S1",
+        "log": [
+          "承平二十六年冬：起咳",
+          "承平二十七年春：咳中带血；射柳一箭后咳得直不起腰，对外说手臂旧伤"
+        ]
+      }
+    },
+    "huanghou": {
+      "name": "裴皇后",
+      "relation": "皇后",
+      "sex": "女",
+      "born": 913,
+      "residence": "宫城·大明宫",
+      "health": "健朗",
+      "status": "在",
+      "card": "characters/pei-huanghou.md",
+      "milestones": {},
+      "deferred": {},
+      "favor": 1,
+      "clan": "裴氏",
+      "busy": "每天先看太医的脉案，再理宫里的账"
+    },
+    "taizi": {
+      "name": "李宪",
+      "relation": "皇子",
+      "sex": "男",
+      "born": 931,
+      "residence": "宫城·东宫",
+      "health": "健朗",
+      "status": "在",
+      "card": "characters/li-xian.md",
+      "milestones": {
+        "就学": "开局前已过：裴绪为师傅",
+        "出阁": "开局前已过：立为太子，居东宫",
+        "冠礼": "开局前已过",
+        "议亲": "开局前已过：太子妃（博陵崔氏）"
+      },
+      "deferred": {},
+      "mother": "huanghou",
+      "line": "嫡",
+      "favor": 1,
+      "busy": "照常在东宫读书、听政；射柳那天陪在天子身边，一箭没射"
+    },
+    "huangsun": {
+      "name": "李晋",
+      "relation": "皇孙",
+      "sex": "男",
+      "born": 950,
+      "residence": "宫城·东宫",
+      "health": "健朗",
+      "status": "在",
+      "card": null,
+      "milestones": {},
+      "deferred": {},
+      "line": "嫡",
+      "trait": "太子的长子，六岁，刚开蒙"
+    },
+    "guifei": {
+      "name": "没藏贵妃",
+      "relation": "贵妃",
+      "sex": "女",
+      "born": 915,
+      "residence": "宫城·大明宫",
+      "health": "健朗",
+      "status": "在",
+      "card": "characters/mozang-guifei.md",
+      "milestones": {},
+      "deferred": {},
+      "favor": 2,
+      "clan": "没藏氏",
+      "busy": "常召宝昌寺的僧人进宫讲经"
+    },
+    "yongwang": {
+      "name": "李祁",
+      "relation": "皇子",
+      "sex": "男",
+      "born": 934,
+      "residence": "崇仁坊·雍王府",
+      "health": "健朗",
+      "status": "在",
+      "card": "characters/li-qi.md",
+      "milestones": {
+        "就学": "开局前已过",
+        "习武": "开局前已过：随长安军学骑射",
+        "出阁": "开局前已过：封雍王，开府宫外",
+        "冠礼": "开局前已过"
+      },
+      "deferred": {},
+      "mother": "guifei",
+      "line": "庶",
+      "favor": 2,
+      "busy": "和长安军的人一起射猎；射柳那天一箭不落"
+    },
+    "shouan": {
+      "name": "寿安公主",
+      "relation": "公主",
+      "sex": "女",
+      "born": 938,
+      "residence": "宫城·大明宫",
+      "health": "健朗",
+      "status": "在",
+      "card": "characters/shouan-gongzhu.md",
+      "milestones": {
+        "就学": "开局前已过：宫中内学",
+        "及笄": "开局前已过"
+      },
+      "deferred": {},
+      "mother": "huanghou",
+      "line": "嫡",
+      "favor": 2,
+      "busy": "正在议亲；契丹使团开口求娶她"
+    },
+    "zhaoyi": {
+      "name": "卢昭仪",
+      "relation": "昭仪",
+      "sex": "女",
+      "born": 926,
+      "residence": "宫城·大明宫",
+      "health": "健朗",
+      "status": "在",
+      "card": "characters/lu-zhaoyi.md",
+      "milestones": {},
+      "deferred": {},
+      "favor": 2,
+      "clan": "卢氏",
+      "busy": "屋里常煎着药茶；天子近来常来坐"
+    },
+    "liyou": {
+      "name": "李祐",
+      "relation": "皇子",
+      "sex": "男",
+      "born": 946,
+      "residence": "宫城·大明宫",
+      "health": "健朗",
+      "status": "在",
+      "card": "characters/li-you.md",
+      "milestones": {
+        "就学": "开局前已过：宫中内学，卢承远常来看他写字"
+      },
+      "deferred": {},
+      "mother": "zhaoyi",
+      "line": "庶",
+      "favor": 2,
+      "busy": "缠着雍王哥哥教他骑马"
+    }
+  },
+  "heir": "李宪",
+  "clans": {
+    "裴氏": {
+      "head": "裴绪",
+      "faction": "法度派",
+      "note": "皇后的母家，裴元礼一脉"
+    },
+    "没藏氏": {
+      "head": "没藏讹遇",
+      "faction": "诸蕃",
+      "note": "贵妃的母家；贵妃之弟没藏宗统长安军，在将门"
+    },
+    "卢氏": {
+      "head": "卢承远",
+      "faction": null,
+      "note": "昭仪的母家；卢承远不在派里"
+    }
+  },
+  "pregnancies": [],
+  "plans": [],
+  "events": [],
+  "visits": [],
+  "last_season_turn": 0
+}

@@ -1,0 +1,95 @@
+{
+  "说明": "白家（盐州）。由 scripts/household.py 读写，规则见 rules/household.md。/newgame 按玩家的回答改：母亲在不在、身体，添姐妹。主角白玫住长安平康坊的武候铺，家在盐州。",
+  "protagonist": {
+    "name": "白玫",
+    "born": 936,
+    "sex": "男",
+    "card": "characters/bai-mei.md",
+    "where": "平康坊"
+  },
+  "members": {
+    "baishun": {
+      "name": "白顺",
+      "relation": "父",
+      "sex": "男",
+      "born": 900,
+      "residence": "盐州·盐池官舍",
+      "health": "健朗",
+      "closeness": "亲近",
+      "busy": "盐池开晒了，天不亮就去晒场",
+      "card": "characters/kin-baishun.md",
+      "status": "在",
+      "spouse": "张氏",
+      "mother": null,
+      "father": null,
+      "line": "",
+      "last_seen_turn": 1,
+      "milestones": {},
+      "deferred": {},
+      "trait": "话少，账清，逢年过节把送来的礼原样退回去"
+    },
+    "zhangshi": {
+      "name": "张氏",
+      "relation": "母",
+      "sex": "女",
+      "born": 904,
+      "residence": "盐州·盐池官舍",
+      "health": "健朗",
+      "closeness": "亲近",
+      "busy": "初一十五去盐州城里的寺里上香，念叨二郎在外头吃不吃得饱",
+      "card": "characters/kin-zhangshi.md",
+      "status": "在",
+      "spouse": "白顺",
+      "mother": null,
+      "father": null,
+      "line": "",
+      "last_seen_turn": 1,
+      "milestones": {},
+      "deferred": {},
+      "trait": "能干，爱念叨，心疼小儿子"
+    },
+    "baijing": {
+      "name": "白敬",
+      "relation": "兄",
+      "sex": "男",
+      "born": 933,
+      "residence": "西市·邸店",
+      "health": "健朗",
+      "closeness": "亲近",
+      "busy": "这一纲四十车官盐交了就回盐州",
+      "card": "characters/kin-baijing.md",
+      "status": "在",
+      "spouse": null,
+      "mother": "zhangshi",
+      "father": "白顺",
+      "line": "",
+      "last_seen_turn": 1,
+      "milestones": {
+        "冠礼": "开局前已过"
+      },
+      "deferred": {},
+      "trait": "会来事，和门吏、店家、马帮称兄道弟",
+      "neglect_limit": 6
+    }
+  },
+  "heir": null,
+  "budget": {
+    "tier": "俭"
+  },
+  "rules": {
+    "cap_peace": 2,
+    "cap_war": 1,
+    "cap_away": 1
+  },
+  "pregnancies": [],
+  "plans": [],
+  "events": [],
+  "visits": [],
+  "pending_triggers": {},
+  "last_season_turn": 0,
+  "字段说明": {
+    "born": "公元生年；虚岁 = 当年 − 生年 + 1；第 1 回合是 956 年春（承平二十七年）",
+    "residence": "地区·去处；地区名决定在不在主角身边（主角在平康坊，家在盐州）",
+    "budget": "白家的用度档位；白玫自己的钱物记在 purse.json"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "factions": {
+    "朝廷": {
+      "leader": "李洙",
+      "controlled_by": "ruler",
+      "card": "characters/li-zhu.md",
+      "note": "主角所事的一方。天子李洙由 ruler agent 扮演：朝议定夺、诏令。朝中各派见 court.json"
+    },
+    "契丹": {
+      "leader": "耶律璟",
+      "controlled_by": "ruler",
+      "card": "characters/yelv-jing.md",
+      "attitude_to_player": "观望",
+      "note": "两家以长城为界，互市不绝。今春遣使续盟，开口求娶寿安公主。帝嗜酒，实权在述律氏和南面宰相周承训"
+    },
+    "江南": {
+      "leader": "李璟",
+      "controlled_by": "ruler",
+      "card": "characters/li-jing.md",
+      "attitude_to_player": "敌视",
+      "note": "据金陵，自称唐宪宗之后，说长安天子本姓韩。不来朝；在长安有人"
+    },
+    "甘州回鹘": {
+      "leader": "药罗葛·仁裕",
+      "controlled_by": "ruler",
+      "card": "characters/ganzhou-kehan.md",
+      "attitude_to_player": "友好",
+      "note": "可汗是阿依古丽的侄子、天子的表兄弟；商路通着长安"
+    },
+    "楚": {
+      "leader": "马氏兄弟",
+      "controlled_by": "GM",
+      "attitude_to_player": "中立",
+      "note": "湖南马家兄弟争位，一方遣使来长安求援。没有地盘画在本图上"
+    }
+  },
+  "relations_log": []
+}

@@ -1,0 +1,127 @@
+{
+  "armies": {
+    "长安军": {
+      "faction": "朝廷",
+      "commander": "没藏宗",
+      "location": "禁苑与长安军大营",
+      "units": {
+        "heavy_cavalry": 1500,
+        "cavalry": 3000,
+        "horse_archer": 1000,
+        "infantry": 3000
+      },
+      "morale": 80,
+      "status": "驻守",
+      "armor": {"heavy_cavalry": "barded"},
+      "drill": {"heavy_cavalry": "elite", "cavalry": "elite"},
+      "note": "天子亲军，胡汉杂编；没藏乞埋带出来的底子。具装人马俱甲、多年操练，轻骑也是精锐（护甲、操练见 rules/units.md）"
+    },
+    "左金吾卫": {
+      "faction": "朝廷",
+      "commander": "李守诚",
+      "location": "皇城",
+      "units": {
+        "infantry": 900,
+        "cavalry": 500
+      },
+      "morale": 65,
+      "status": "驻守",
+      "note": "管左街各坊的巡夜、宫城外围诸门；骑卒分队驻各坊武候铺。右金吾卫由右金吾将军管右街，GM 扮演"
+    },
+    "羽林军": {
+      "faction": "朝廷",
+      "commander": "浑德",
+      "location": "宫城",
+      "units": {
+        "infantry": 2000,
+        "archer": 800
+      },
+      "morale": 75,
+      "status": "驻守",
+      "note": "宫城里面的宿卫"
+    },
+    "忠武营": {
+      "faction": "朝廷",
+      "commander": "拓跋继忠",
+      "location": "城西军屯",
+      "units": {
+        "cavalry": 2000,
+        "horse_archer": 1000
+      },
+      "morale": 75,
+      "status": "驻守",
+      "note": "党项为主的骑兵营"
+    },
+    "朔方军": {
+      "faction": "朝廷",
+      "commander": "康承嗣",
+      "location": "灵州",
+      "units": {
+        "infantry": 4000,
+        "cavalry": 2000,
+        "archer": 1000
+      },
+      "morale": 70,
+      "status": "驻守"
+    },
+    "宁州团练": {
+      "faction": "朝廷",
+      "commander": "杜承恩",
+      "location": "宁州",
+      "units": {
+        "infantry": 1200,
+        "militia": 800
+      },
+      "morale": 60,
+      "status": "驻守"
+    },
+    "没藏部兵": {
+      "faction": "朝廷",
+      "commander": "没藏讹遇",
+      "location": "凉州",
+      "units": {
+        "horse_archer": 3000,
+        "cavalry": 2000
+      },
+      "morale": 75,
+      "status": "驻守",
+      "note": "河西没藏部，西平郡王的部众"
+    },
+    "甘州回鹘骑": {
+      "faction": "甘州回鹘",
+      "commander": "药罗葛·仁裕",
+      "location": "甘州",
+      "units": {
+        "horse_archer": 4000,
+        "cavalry": 1000
+      },
+      "morale": 70,
+      "status": "驻守"
+    },
+    "契丹南京兵": {
+      "faction": "契丹",
+      "commander": "契丹南京留守",
+      "location": "契丹南京",
+      "units": {
+        "cavalry": 8000,
+        "horse_archer": 6000,
+        "infantry": 6000
+      },
+      "morale": 70,
+      "status": "驻守"
+    },
+    "江南兵": {
+      "faction": "江南",
+      "commander": "江南诸将",
+      "location": "金陵",
+      "units": {
+        "infantry": 15000,
+        "archer": 4000,
+        "crossbow": 3000,
+        "cavalry": 1000
+      },
+      "morale": 65,
+      "status": "驻守"
+    }
+  }
+}

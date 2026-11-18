@@ -1,0 +1,13 @@
+{
+  "说明": "主角是臣子，没有帅府、委任和亲裁限额；这份只留治所（主角住的地方），校验要用。每季能做几件事见 actions.json（scripts/actions.py）。",
+  "council": {
+    "seat": "平康坊",
+    "staff": [],
+    "log": []
+  },
+  "establishment": {},
+  "commands": {},
+  "loose": {},
+  "hostile": [],
+  "last_settlement": {}
+}

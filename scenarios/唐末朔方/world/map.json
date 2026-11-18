@@ -1,0 +1,11 @@
+{
+  "regions": {
+    "灵州": {"terrain": "city", "fortification": 80, "owner": "朔方", "adjacent": ["盐州", "贺兰山", "丰州"], "income": {"money": 2500, "grain": 9000}, "note": "朔方军治所，黄河灌区，沃野千里"},
+    "盐州": {"terrain": "city", "fortification": 50, "owner": "朔方", "adjacent": ["灵州", "宥州", "庆州"], "income": {"money": 3000, "grain": 2500}, "note": "有盐池，盐利丰厚；与党项接壤，是前线"},
+    "贺兰山": {"terrain": "mountain", "fortification": 0, "owner": "贺兰诸部", "adjacent": ["灵州", "丰州"], "income": {"money": 500, "grain": 500}, "note": "党项、回鹘杂居的部落，产良马"},
+    "丰州": {"terrain": "steppe", "fortification": 30, "owner": "天德军", "adjacent": ["灵州", "贺兰山", "夏州"], "income": {"money": 800, "grain": 2000}, "note": "天德军残部据守，兵弱，名义上听命朝廷"},
+    "宥州": {"terrain": "steppe", "fortification": 40, "owner": "定难", "adjacent": ["盐州", "夏州"], "income": {"money": 1000, "grain": 2500}, "note": "定难军西境重镇，牧马之地"},
+    "夏州": {"terrain": "city", "fortification": 90, "owner": "定难", "adjacent": ["宥州", "丰州"], "income": {"money": 2000, "grain": 6000}, "note": "统万城，赫连勃勃所筑，城坚难拔；定难军治所"},
+    "庆州": {"terrain": "mountain", "fortification": 50, "owner": "邠宁", "adjacent": ["盐州"], "income": {"money": 1500, "grain": 4000}, "note": "邠宁杨崇本的地盘，杨崇本依附凤翔李茂贞"}
+  }
+}

@@ -1,0 +1,32 @@
+{
+ "title": "白马津东原之战（示范战例）",
+ "说明": "薛崇率马军截击一支枪弩混编的步军。中军有一处缓坡，步军据坡列阵；右翼外侧是一片疏林。这是示范用的虚构战例，人名、兵数都不入存档。",
+ "seed": 902,
+ "tick": 0,
+ "sunset": 8,
+ "weather": {"fog": false},
+ "sectors": {
+  "左": {"gap": 2, "features": []},
+  "中": {"gap": 2, "features": [{"type": "hill", "holder": "B"}]},
+  "右": {"gap": 2, "features": [{"type": "forest"}]}
+ },
+ "sides": {
+  "A": {"name": "朔方马军", "role": "attacker",
+        "leaders": {"薛崇": {"统率": 6, "武勇": 9}, "折嗣宗": {"统率": 5, "武勇": 7}}},
+  "B": {"name": "敌步军", "role": "defender",
+        "leaders": {"高行周": {"统率": 7, "武勇": 6}, "李仁裕": {"统率": 5, "武勇": 5}}}
+ },
+ "units": [
+  {"id": "薛崇牙骑", "side": "A", "type": "light_cav", "men": 800, "morale": 82, "sector": "中", "line": "front", "leader": "薛崇", "standing": "charge_if_loose"},
+  {"id": "左厢轻骑", "side": "A", "type": "light_cav", "men": 700, "morale": 78, "sector": "左", "line": "front", "leader": "折嗣宗"},
+  {"id": "右厢骑射", "side": "A", "type": "horse_archer", "men": 500, "morale": 76, "sector": "右", "line": "front", "army_code": "cavalry"},
+  {"id": "随军步卒", "side": "A", "type": "infantry", "men": 400, "morale": 70, "sector": "中", "line": "reserve"},
+
+  {"id": "枪阵甲", "side": "B", "type": "spear", "men": 1500, "morale": 75, "sector": "中", "line": "front", "leader": "高行周"},
+  {"id": "弩队", "side": "B", "type": "crossbow", "men": 600, "morale": 72, "sector": "中", "line": "back", "standing": "shoot"},
+  {"id": "枪阵乙", "side": "B", "type": "spear", "men": 800, "morale": 70, "sector": "左", "line": "front", "leader": "李仁裕"},
+  {"id": "刀盾营", "side": "B", "type": "shield", "men": 700, "morale": 70, "sector": "右", "line": "front"},
+  {"id": "弓手队", "side": "B", "type": "archer", "men": 300, "morale": 68, "sector": "右", "line": "back", "standing": "shoot"},
+  {"id": "团结兵", "side": "B", "type": "militia", "men": 600, "morale": 60, "sector": "中", "line": "reserve"}
+ ]
+}

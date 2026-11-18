@@ -1,0 +1,10 @@
+{
+  "factions": {
+    "朔方": {"leader": "韩逊", "controlled_by": "player"},
+    "定难": {"leader": "李思谏", "controlled_by": "ruler", "card": "characters/li-sijian.md", "attitude_to_player": "敌对", "note": "党项拓跋氏，世据夏州，觊觎盐州盐利"},
+    "贺兰诸部": {"leader": "部落酋长", "controlled_by": "GM", "attitude_to_player": "中立", "note": "谁给的好处多就靠向谁；卖马"},
+    "天德军": {"leader": "天德军使", "controlled_by": "GM", "attitude_to_player": "中立偏友好", "note": "兵弱粮少，求自保，可能被招抚"},
+    "邠宁": {"leader": "杨崇本", "controlled_by": "GM", "attitude_to_player": "中立", "note": "依附李茂贞；凤翔被围，自顾不暇"}
+  },
+  "relations_log": []
+}

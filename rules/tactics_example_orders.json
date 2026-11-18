@@ -1,0 +1,22 @@
+{
+ "说明": "示范战例逐刻军令。A 方是玩家（薛崇等将领 agent 解读后的实际命令），B 方是敌将（ruler/general agent 给出的命令）。",
+ "1": {"A": [{"unit": "左厢轻骑", "order": "advance"}, {"unit": "右厢骑射", "order": "advance"}],
+       "B": [{"unit": "全军", "order": "hold"}]},
+ "2": {"A": [{"unit": "左厢轻骑", "order": "charge", "target": "枪阵乙"}, {"unit": "右厢骑射", "order": "shoot", "target": "刀盾营"}],
+       "B": []},
+ "3": {"A": [{"unit": "左厢轻骑", "order": "rally"}, {"unit": "薛崇牙骑", "order": "flank", "sector": "左"},
+             {"unit": "右厢骑射", "order": "shoot", "target": "刀盾营"}],
+       "B": [{"unit": "弩队", "order": "advance"}]},
+ "4": {"A": [{"unit": "薛崇牙骑", "order": "charge", "target": "枪阵乙"}, {"unit": "左厢轻骑", "order": "rally"},
+             {"unit": "右厢骑射", "order": "shoot", "target": "刀盾营"}],
+       "B": [{"unit": "枪阵乙", "order": "face", "dir": "侧面"}, {"unit": "团结兵", "order": "commit", "sector": "左", "line": "back"}]},
+ "5": {"A": [{"unit": "左厢轻骑", "order": "charge", "target": "枪阵乙"}, {"unit": "薛崇牙骑", "order": "rally", "standing": "charge_if_loose"},
+             {"unit": "右厢骑射", "order": "shoot", "target": "刀盾营"}],
+       "B": [{"unit": "团结兵", "order": "attack", "target": "薛崇牙骑"}]},
+ "6": {"A": [{"unit": "左厢轻骑", "order": "pursue"}, {"unit": "右厢骑射", "order": "shoot", "target": "刀盾营"}],
+       "B": [{"unit": "枪阵甲", "order": "hold"}]},
+ "7": {"A": [{"unit": "左厢轻骑", "order": "rally"}, {"unit": "右厢骑射", "order": "withdraw"}],
+       "B": [{"unit": "全军", "order": "retreat"}]},
+ "8": {"A": [{"unit": "全军", "order": "pursue"}],
+       "B": [{"unit": "全军", "order": "retreat"}]}
+}

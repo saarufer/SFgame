@@ -1,0 +1,12 @@
+{
+  "armies": {
+    "牙军": {"faction": "朔方", "commander": "韩逊", "location": "灵州", "units": {"infantry": 3000, "archer": 1000, "cavalry": 500}, "morale": 75, "status": "驻守"},
+    "马军": {"faction": "朔方", "commander": "薛崇", "location": "灵州", "units": {"cavalry": 2000, "infantry": 500}, "morale": 80, "status": "驻守"},
+    "步军": {"faction": "朔方", "commander": "周延嗣", "location": "盐州", "units": {"infantry": 2500, "archer": 1000}, "morale": 70, "status": "驻守"},
+    "定难本军": {"faction": "定难", "commander": "李思谏", "location": "夏州", "units": {"infantry": 3000, "cavalry": 2500, "archer": 800}, "morale": 75, "status": "驻守"},
+    "宥州军": {"faction": "定难", "commander": "李仁福", "location": "宥州", "units": {"cavalry": 1500, "infantry": 1000}, "morale": 70, "status": "驻守"},
+    "贺兰部落兵": {"faction": "贺兰诸部", "commander": "部落酋长", "location": "贺兰山", "units": {"cavalry": 1000}, "morale": 60, "status": "驻守"},
+    "天德军": {"faction": "天德军", "commander": "天德军使", "location": "丰州", "units": {"infantry": 800, "cavalry": 200}, "morale": 45, "status": "驻守"},
+    "邠宁庆州军": {"faction": "邠宁", "commander": "邠宁部将", "location": "庆州", "units": {"infantry": 2000, "cavalry": 500}, "morale": 65, "status": "驻守"}
+  }
+}
